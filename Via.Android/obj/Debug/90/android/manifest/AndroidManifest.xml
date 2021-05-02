@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="1.0.0.5" package="com.nl.via" android:installLocation="auto" android:versionCode="4">
+  <uses-sdk android:minSdkVersion="15" android:targetSdkVersion="28" />
+  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+  <uses-permission android:name="android.permission.INTERNAL_SYSTEM_WINDOW" />
+  <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.CAMERA" />
+  <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+  <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+  <uses-feature android:name="android.hardware.camera" android:required="false" />
+  <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
+  <uses-feature android:name="android.hardware.location.gps" />
+  <uses-feature android:name="android.hardware.location.network" />
+  <application android:name="md5c3783727752f1a98e232172b9af24bc4.MainApplication" android:label="Via" android:icon="@mipmap/icon" android:allowBackup="true" android:debuggable="true">
+    <service android:name="com.mapbox.mapboxsdk.telemetry.TelemetryService" />
+    <provider android:name="android.support.v4.content.FileProvider" android:authorities="com.nl.via.fileprovider" android:exported="false" android:grantUriPermissions="true">
+      <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"></meta-data>
+    </provider>
+    <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity" android:theme="@style/Base.Theme.AppCompat" />
+    <activity android:configChanges="orientation|screenSize" android:icon="@mipmap/icon" android:label="Via" android:theme="@style/MainTheme" android:name="md5c3783727752f1a98e232172b9af24bc4.MainActivity">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
+    </activity>
+    <receiver android:enabled="true" android:label="Local Notifications Plugin Broadcast Receiver" android:name="md51251ca0436b286678a1cd2c1ca81248e.ScheduledAlarmHandler" />
+    <activity android:configChanges="orientation|screenSize" android:name="md54cd65ac53ae710bff80022afc423e0f3.MediaPickerActivity" />
+    <receiver android:enabled="true" android:exported="false" android:name="md51558244f76c53b6aeda52c8a337f2c37.PowerSaveModeBroadcastReceiver" />
+    <provider android:name="mono.MonoRuntimeProvider" android:exported="false" android:initOrder="2147483647" android:authorities="com.nl.via.mono.MonoRuntimeProvider.__mono_init__" />
+    <!--suppress ExportedReceiver-->
+    <receiver android:name="mono.android.Seppuku">
+      <intent-filter>
+        <action android:name="mono.android.intent.action.SEPPUKU" />
+        <category android:name="mono.android.intent.category.SEPPUKU.com.nl.via" />
+      </intent-filter>
+    </receiver>
+    <activity android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:exported="false" />
+    <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
+    <service android:name="com.mapbox.android.telemetry.TelemetryService" />
+    <provider android:name="android.arch.lifecycle.ProcessLifecycleOwnerInitializer" android:authorities="com.nl.via.lifecycle-trojan" android:exported="false" android:multiprocess="true" />
+    <provider android:name="androidx.work.impl.WorkManagerInitializer" android:authorities="com.nl.via.workmanager-init" android:directBootAware="false" android:exported="false" android:multiprocess="true" p6:targetApi="n" xmlns:p6="http://schemas.android.com/tools" />
+    <service android:name="androidx.work.impl.background.systemalarm.SystemAlarmService" android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" p6:targetApi="n" xmlns:p6="http://schemas.android.com/tools" />
+    <service android:name="androidx.work.impl.background.systemjob.SystemJobService" android:directBootAware="false" android:enabled="@bool/enable_system_job_service_default" android:exported="true" android:permission="android.permission.BIND_JOB_SERVICE" p6:targetApi="n" xmlns:p6="http://schemas.android.com/tools" />
+    <receiver android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver" android:directBootAware="false" android:enabled="true" android:exported="false" p6:targetApi="n" xmlns:p6="http://schemas.android.com/tools" />
+    <receiver android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy" android:directBootAware="false" android:enabled="false" android:exported="false" p6:targetApi="n" xmlns:p6="http://schemas.android.com/tools">
+      <intent-filter>
+        <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+        <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+      </intent-filter>
+    </receiver>
+    <receiver android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy" android:directBootAware="false" android:enabled="false" android:exported="false" p6:targetApi="n" xmlns:p6="http://schemas.android.com/tools">
+      <intent-filter>
+        <action android:name="android.intent.action.BATTERY_OKAY" />
+        <action android:name="android.intent.action.BATTERY_LOW" />
+      </intent-filter>
+    </receiver>
+    <receiver android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy" android:directBootAware="false" android:enabled="false" android:exported="false" p6:targetApi="n" xmlns:p6="http://schemas.android.com/tools">
+      <intent-filter>
+        <action android:name="android.intent.action.DEVICE_STORAGE_LOW" />
+        <action android:name="android.intent.action.DEVICE_STORAGE_OK" />
+      </intent-filter>
+    </receiver>
+    <receiver android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy" android:directBootAware="false" android:enabled="false" android:exported="false" p6:targetApi="n" xmlns:p6="http://schemas.android.com/tools">
+      <intent-filter>
+        <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+      </intent-filter>
+    </receiver>
+    <receiver android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver" android:directBootAware="false" android:enabled="false" android:exported="false" p6:targetApi="n" xmlns:p6="http://schemas.android.com/tools">
+      <intent-filter>
+        <action android:name="android.intent.action.BOOT_COMPLETED" />
+        <action android:name="android.intent.action.TIME_SET" />
+        <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+      </intent-filter>
+    </receiver>
+    <receiver android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver" android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" p6:targetApi="n" xmlns:p6="http://schemas.android.com/tools">
+      <intent-filter>
+        <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies" />
+      </intent-filter>
+    </receiver>
+  </application>
+  <uses-feature android:name="android.hardware.wifi" android:required="false" />
+  <uses-permission android:name="android.permission.WAKE_LOCK" />
+</manifest>

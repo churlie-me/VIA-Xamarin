@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:custom="clr-namespace:Via.Controls"
+    x:Class="Via.Views.PointOfImpact"
+    xmlns:ffSvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+    NavigationPage.HasNavigationBar="False">
+    <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Tap on image grid to select point of Impact" VerticalOptions="Center" x:Name="pointOfImpactLabel" FontAttributes="Bold" Margin="0,0,50,0"/>
+            <Image Source="ic_close_page.png" HeightRequest="36" VerticalOptions="Center" WidthRequest="36" Margin="0,0,15,0" HorizontalOptions="EndAndExpand">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="ClosePage" />
+                </Image.GestureRecognizers>
+            </Image>
+        </StackLayout>
+        <AbsoluteLayout x:Name="absoluteImageHolder" VerticalOptions="FillAndExpand">
+            <StackLayout x:Name="imageStack" Orientation="Horizontal" HorizontalOptions="Center" AbsoluteLayout.LayoutBounds="0,0,1,1"
+                         AbsoluteLayout.LayoutFlags="All" Padding="20">
+                <ffSvg:SvgCachedImage x:Name="pointOfImpactSvg" Aspect="AspectFit" HorizontalOptions="Center" />
+            </StackLayout>
+            <custom:ViaFrame WidthRequest="{Binding Path=Width, Source={x:Reference imageStack}}" HorizontalOptions="CenterAndExpand"
+                             AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" Padding="0">
+                <Grid RowSpacing="0" ColumnSpacing="0" x:Name="pointSelectionGrid">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="25*" />
+                        <ColumnDefinition Width="50*" />
+                        <ColumnDefinition Width="25*" />
+                    </Grid.ColumnDefinitions>
+                    <Frame Grid.Column="0" Padding="0" HasShadow="False" BackgroundColor="Transparent">
+                        <Grid RowSpacing="0" ColumnSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="10*" />
+                                <RowDefinition Height="15*" />
+                                <RowDefinition Height="50*" />
+                                <RowDefinition Height="15*" />
+                                <RowDefinition Height="10*" />
+                            </Grid.RowDefinitions>
+                            <StackLayout x:Name="stack0" Orientation="Vertical" Grid.Row="0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Margin="0,0,0,3">
+                                <BoxView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Margin="0.5"/>
+                                <custom:ViaFrame HorizontalOptions="FillAndExpand" WidthRequest="1" Padding="1" Margin="0"/>
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnPointOfImpactSelected" />
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                            <StackLayout x:Name="stack1" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Orientation="Vertical" Grid.Row="1" Margin="0,0,0,3">
+                                <BoxView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Margin="0.5"/>
+                                <custom:ViaFrame HorizontalOptions="FillAndExpand" WidthRequest="1" Padding="1" Margin="0" />
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnPointOfImpactSelected" />
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                            <StackLayout x:Name="stack2" Orientation="Vertical" Grid.Row="2" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Margin="0,0,0,1">
+                                <BoxView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Margin="0.5" />
+                                <custom:ViaFrame HorizontalOptions="FillAndExpand" WidthRequest="1" Padding="1" Margin="0"/>
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnPointOfImpactSelected" />
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                            <StackLayout x:Name="stack3" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Orientation="Vertical" Grid.Row="3" Margin="0,0,0,1">
+                                <BoxView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Margin="0.5"/>
+                                <custom:ViaFrame HorizontalOptions="FillAndExpand" WidthRequest="1" Padding="1" Margin="0" />
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnPointOfImpactSelected" />
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                            <StackLayout x:Name="stack4" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Orientation="Vertical" Grid.Row="4" Margin="0,0,0,1">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnPointOfImpactSelected" />
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                        </Grid>
+                    </Frame>
+                    <custom:ViaFrame Grid.Column="1" Padding="0" HasShadow="False" BackgroundColor="Transparent">
+                        <Grid RowSpacing="0" ColumnSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="15*" />
+                                <RowDefinition Height="70*" />
+                                <RowDefinition Height="15*" />
+                            </Grid.RowDefinitions>
+                            <StackLayout x:Name="stack5" Orientation="Vertical" Grid.Row="0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                                <BoxView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
+                                <custom:ViaFrame HorizontalOptions="FillAndExpand" WidthRequest="1" Padding="1" />
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnPointOfImpactSelected" />
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                            <StackLayout x:Name="stack6" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Orientation="Vertical" Grid.Row="1">
+                                <BoxView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
+                                <custom:ViaFrame HorizontalOptions="FillAndExpand" WidthRequest="1" Padding="1" />
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnPointOfImpactSelected" />
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                            <StackLayout x:Name="stack7" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Orientation="Vertical" Grid.Row="2">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnPointOfImpactSelected" />
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                        </Grid>
+                    </custom:ViaFrame>
+                    <Frame Grid.Column="2" Padding="0" HasShadow="False" BackgroundColor="Transparent">
+                        <Grid RowSpacing="0" ColumnSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="10*" />
+                                <RowDefinition Height="15*" />
+                                <RowDefinition Height="50*" />
+                                <RowDefinition Height="15*" />
+                                <RowDefinition Height="10*" />
+                            </Grid.RowDefinitions>
+                            <StackLayout x:Name="stack8" Orientation="Vertical" Grid.Row="0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                                <BoxView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
+                                <custom:ViaFrame HorizontalOptions="FillAndExpand" WidthRequest="1" Padding="1" />
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnPointOfImpactSelected" />
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                            <StackLayout x:Name="stack9" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Orientation="Vertical" Grid.Row="1">
+                                <BoxView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
+                                <custom:ViaFrame HorizontalOptions="FillAndExpand" WidthRequest="1" Padding="1" />
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnPointOfImpactSelected" />
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                            <StackLayout x:Name="stack10" Orientation="Vertical" Grid.Row="2" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                                <BoxView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
+                                <custom:ViaFrame HorizontalOptions="FillAndExpand" WidthRequest="1" Padding="1" />
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnPointOfImpactSelected" />
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                            <StackLayout x:Name="stack11" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Orientation="Vertical" Grid.Row="3">
+                                <BoxView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
+                                <custom:ViaFrame HorizontalOptions="FillAndExpand" WidthRequest="1" Padding="1" />
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnPointOfImpactSelected" />
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                            <StackLayout x:Name="stack12" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Orientation="Vertical" Grid.Row="4">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnPointOfImpactSelected" />
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                        </Grid>
+                    </Frame>
+                </Grid>
+            </custom:ViaFrame>
+        </AbsoluteLayout>
+        <Button CornerRadius="8" Text="Continue" BackgroundColor="#39b835" TextColor="White" Margin="15,5,15,10" HorizontalOptions="FillAndExpand" Clicked="POIContinue"/>
+        <StackLayout.Padding>
+            <OnPlatform x:TypeArguments="Thickness" iOS="10,40,10,10" Android="10,10,10,10"/>
+        </StackLayout.Padding>
+    </StackLayout>
+</ContentPage>

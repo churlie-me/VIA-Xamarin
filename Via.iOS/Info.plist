@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>UIDeviceFamily</key>
+	<array>
+		<integer>1</integer>
+		<integer>2</integer>
+	</array>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>UISupportedInterfaceOrientations~ipad</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+	<key>MinimumOSVersion</key>
+	<string>8.0</string>
+	<key>CFBundleDisplayName</key>
+	<string>Via</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.nl.Via3</string>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
+	<key>CFBundleName</key>
+	<string>Via</string>
+	<key>NSCameraUsageDescription</key>
+	<string>This app needs access to the camera to take photos.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>This app needs access to photos.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>This app needs access to the photo gallery.</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0.6</string>
+	<key>UIMainStoryboardFile</key>
+	<string>LaunchScreen</string>
+	<key>XSLaunchImageAssets</key>
+	<string>Assets.xcassets/LaunchImages.launchimage</string>
+	<key>Fabric</key>
+	<dict>
+		<key>APIKey</key>
+		<string>1e2749e39a96cfdba02572490cc88139e9708aa8</string>
+		<key>Kits</key>
+		<array>
+			<dict>
+				<key>KitInfo</key>
+				<dict/>
+				<key>KitName</key>
+				<string>Crashlytics</string>
+			</dict>
+		</array>
+	</dict>
+	<key>UIUserInterfaceStyle</key>
+	<string>Light</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>This app needs to use your location</string>
+	<key>NSLocationUsageDescription</key>
+	<string>This app needs to use your location</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>TitilliumWeb-Black.ttf</string>
+		<string>TitilliumWeb-Bold.ttf</string>
+		<string>TitilliumWeb-Light.ttf</string>
+		<string>TitilliumWeb-Regular.ttf</string>
+		<string>TitilliumWeb-SemiBold.ttf</string>
+	</array>
+	<key>XSAppIconAssets</key>
+	<string>Assets.xcassets/AppIcon.appiconset</string>
+	<key>CFBundleVersion</key>
+	<string>21</string>
+</dict>
+</plist>

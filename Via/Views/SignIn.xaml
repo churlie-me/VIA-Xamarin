@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:custom="clr-namespace:Via" xmlns:controls="clr-namespace:Via.Controls"
+             x:Class="Via.Views.SignIn"
+             BackgroundColor="#00314A"
+             NavigationPage.HasNavigationBar="false">
+    <ContentPage.Content>
+        <controls:KeyboardView>
+            <Image Source="SplashScreen.png" x:Name="splashScreenBg" Aspect="AspectFill" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+            <StackLayout BackgroundColor="#00314A" x:Name="splashScreenBgColor" Opacity="0.7" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+            <StackLayout Orientation="Vertical" HorizontalOptions="Fill" VerticalOptions="Center" AbsoluteLayout.LayoutBounds="0.5, 0.5" AbsoluteLayout.LayoutFlags="PositionProportional">
+                <StackLayout x:Name="signInStack" Orientation="Vertical" VerticalOptions="Center">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Padding="10,0,10,10">
+                        <Image Source="Via.png" HeightRequest="47" VerticalOptions="CenterAndExpand" />
+                        <Label Text="VIA" VerticalTextAlignment="Start" FontSize="67" FontAttributes="Bold"
+                           TextColor="#FFFFFF" />
+                    </StackLayout>
+                    <Label Text="Traffic Solutions Software" HorizontalOptions="Center" FontSize="16" TextColor="#FFFFFF" Margin="0,-30,0,50"/>
+
+                    <Label Text="Account Login" FontFamily="{StaticResource LightFont}" HorizontalOptions="Center" FontSize="28" TextColor="#FFFFFF" Margin="0,-15,0,30"/>
+
+                    <Frame CornerRadius="14" Margin="15,0,15,15" BorderColor="Red" IsVisible="False" BackgroundColor="Red" Padding="10,5,10,5" x:Name="loginError">
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                            <Image Source="ic_exclamation.png" HeightRequest="14" WidthRequest="14"/>
+                            <Label Text="Incorrect login details. Try again" FontSize="15" FontAttributes="Italic" TextColor="#FFFFFF" />
+                        </StackLayout>
+                    </Frame>
+                    <Frame CornerRadius="8" Margin="0,0,0,10" BorderColor="White" Padding="1" HasShadow="False" BackgroundColor="White">
+                        <custom:ViaEntry
+                            CornerRadius="8" BorderColor="White"
+                            HorizontalTextAlignment="Center"
+                            FontFamily="{StaticResource NormalFont}"
+                            x:Name="Mail" IsCurvedCornersEnabled="True" BackgroundColor="Transparent" Text="{Binding Mail}"
+                            FontSize="17" TextChanged="CredentialsChanged" HeightRequest="50" Placeholder="Email Address" 
+                            PlaceholderColor="Gray"
+                            TextColor="Black" WidthRequest="254"/>
+                    </Frame>
+                    <Frame CornerRadius="8" Margin="0,0,0,10" BorderColor="White" BackgroundColor="White" Padding="1" HasShadow="False">
+                        <custom:ViaEntry
+                            CornerRadius="8" BorderColor="White"
+                            HorizontalTextAlignment="Center"
+                            FontFamily="{StaticResource NormalFont}"
+                            x:Name="Password" TextChanged="CredentialsChanged" IsCurvedCornersEnabled="True" BackgroundColor="Transparent" Text="{Binding Password}"
+                            FontSize="17" HeightRequest="50" IsPassword = "True" Placeholder="Password"
+                            PlaceholderColor="Gray" TextColor="Black" WidthRequest="254"/>
+                    </Frame>
+                    <Button Text="LogIn" WidthRequest="254" CornerRadius="8" Clicked="SignInUser" BackgroundColor="#39b835" TextColor="White" HeightRequest="50" VerticalOptions="Start" />
+                    <Label Text="Did you forget your password?"
+                           FontFamily="{StaticResource SemiBoldFont}"
+                           TextDecorations="Underline"  HorizontalOptions="Center" Margin="0,10,0,0" FontSize="15" TextColor="#FFFFFF">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ForgotPassword"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+                <StackLayout x:Name="signInProgress" Orientation="Vertical" IsVisible="False" HorizontalOptions="Center">
+                    <ActivityIndicator Color="White"  x:Name="signInIndicator" IsRunning="True" 
+                                   IsVisible="True" WidthRequest="254" HeightRequest="100" Margin="0,0,0,20"/>
+                    <Label Text="Signing in..." TextColor="White"
+                           FontFamily="{StaticResource NormalFont}"
+                           FontSize="25" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand"/>
+                </StackLayout>
+            </StackLayout>
+        </controls:KeyboardView>
+    </ContentPage.Content>
+</ContentPage>

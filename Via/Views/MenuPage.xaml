@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:Via.Helpers"
+             xmlns:ic="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             x:Class="Via.Views.MenuPage"            
+             Title="Menu">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:ItemCheckToVisibilityConverter x:Key="ItemCheckToVisibility" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <Frame
+        HasShadow="true"
+        CornerRadius="0"
+        >
+        <StackLayout  Orientation="Vertical" Padding="0,0,0,0" VerticalOptions="Start">
+            <StackLayout HeightRequest="100" WidthRequest="100" Margin="0,32,36,40">
+                <Frame HasShadow="False" Padding="0"  BackgroundColor="#00314A" HorizontalOptions="End">
+                   <StackLayout HeightRequest="100" WidthRequest="100">
+                        <Image HeightRequest="100" WidthRequest="100" Aspect="Fill" x:Name="userAvatar" />
+                    </StackLayout>
+                    <Frame.CornerRadius>
+                        <OnPlatform x:TypeArguments="x:Single" iOS="50" Android="100"/>
+                    </Frame.CornerRadius>
+                    <Frame.Margin>
+                        <OnPlatform x:TypeArguments="Thickness" iOS="10,40,0,0" Android="10,20,0,0"/>
+                    </Frame.Margin>
+                </Frame>
+            </StackLayout>
+            <Label Text="John Doe" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End"  x:Name="userName" FontFamily="{StaticResource NormalFont}"  FontSize="30" FontAttributes="None" TextColor="#FF4D4F5C">
+                <Label.Margin>
+                    <OnPlatform x:TypeArguments="Thickness" iOS="0,0,36,36" Android="0,0,36,63"/>
+                </Label.Margin>
+            </Label>
+
+ 
+            <!--<ListView x:Name="ListViewMenu"
+ 
+                      Footer=""
+                      SelectionMode="None"                   
+                      HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="0,0,36,24" HorizontalOptions="EndAndExpand">
+                                <Label Text="{Binding Title}" Style="{StaticResource MenuLabel}" TextColor="{Binding Color}" FontFamily="{StaticResource LightFont}"/>                       
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+             
+            </ListView>-->
+
+            
+            <StackLayout HorizontalOptions="EndAndExpand" Padding="0,0,36,24">
+                 <Label HorizontalTextAlignment="End" Text="Report" Style="{StaticResource MenuLabel}"
+                       
+                     
+                      TextColor="#FF3C3C3C" FontFamily="{StaticResource LightFont}">
+                     <Label.GestureRecognizers>
+                         <TapGestureRecognizer
+                Tapped="onTapReportGestureRecognizerTapped"
+                />
+ 
+                     </Label.GestureRecognizers>
+                 </Label>
+                 <Label  HorizontalTextAlignment="End" Text="Settings" Style="{StaticResource MenuLabel}"
+                       
+                     Margin="0,24,0,24"
+                      TextColor="#FF3C3C3C" FontFamily="{StaticResource LightFont}">
+                      <Label.GestureRecognizers>
+                         <TapGestureRecognizer
+                Tapped="onTapSettingGestureRecognizerTapped"
+                />
+ 
+                     </Label.GestureRecognizers>
+                 </Label>
+                    <BoxView BackgroundColor="#FFDCDCDC"
+ 
+                             HeightRequest="0.5" WidthRequest="150"  HorizontalOptions="FillAndExpand"/>
+               <Label  Text="Logout" Style="{StaticResource MenuLabel}"
+                       x:Name="logout"
+                        HorizontalTextAlignment="End"
+                     
+                      TextColor="Red" FontFamily="{StaticResource LightFont}">
+                    <Label.GestureRecognizers>
+                         <TapGestureRecognizer
+                Tapped="onTapLogoutGestureRecognizerTapped"
+                />
+ 
+                     </Label.GestureRecognizers>
+               </Label>
+               <BoxView BackgroundColor="#FFDCDCDC"   WidthRequest="150" HeightRequest="0.5"  HorizontalOptions="FillAndExpand"/>
+            </StackLayout>
+                     
+        
+            <StackLayout HorizontalOptions="EndAndExpand" VerticalOptions="End" Padding="0,36,36,36">
+                <Label  Text="V 1.0.0" FontFamily="{StaticResource NormalFont}" FontSize="13" FontAttributes="None" TextColor="#FFACACAC" />
+            </StackLayout>
+        </StackLayout>
+        </Frame>
+</ContentPage>

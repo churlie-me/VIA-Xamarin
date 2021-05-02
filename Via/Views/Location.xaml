@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:Naxam.Controls.Mapbox.Forms;assembly=Naxam.Mapbox.Forms"
+    xmlns:local="clr-namespace:Via.Controls"
+
+    x:Class="Via.Views.Location">
+    <StackLayout Orientation="Vertical">
+         
+    <ScrollView VerticalScrollBarVisibility="Never" Padding="0,8,0,8" x:Name="locationScroll">
+        <ScrollView.InputTransparent>
+            <OnPlatform x:TypeArguments="x:Boolean" iOS="false" Android="true" />
+        </ScrollView.InputTransparent>
+        <StackLayout Orientation="Vertical">
+            
+            <Label Text="When did it happen"
+                   TextColor="#FF00314B" x:Name="mapHappen" FontFamily="{StaticResource SemiBoldFont}" Margin="10,0,0,10"  />
+
+                <StackLayout HeightRequest="140" VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+                    <!--Date Picker & Horizontal Scroll List-->
+                  <DatePicker x:Name="accidentDatePicker" IsVisible="False" DateSelected="RefreshDateScroll"/>
+                  <local:HorizontalListview
+                    Orientation="Horizontal"
+                    x:Name="accidentDates"
+                    ItemSelected="AccidentDates_ItemSelected"
+                    HorizontalScrollBarVisibility="Never"
+                 
+                    >
+                    <local:HorizontalListview.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame HasShadow="False"
+                                       BorderColor="#FAFAFA" 
+                                       HorizontalOptions="Center" 
+                                       IsClippedToBounds="True"
+                                       VerticalOptions="Start"
+                                       WidthRequest="100" 
+                                       Padding="0" 
+                                       CornerRadius="8" 
+                                      
+                                       Margin="2,0,2,0">
+                                   <StackLayout>
+                                    <ContentView BackgroundColor="{Binding ItemTopBackgroundColor}">
+                                    <Label Text="{Binding Day}" HorizontalTextAlignment="Center" 
+                                           TextColor="{Binding ItemTextColor}" FontFamily="{StaticResource SemiBoldFont}"/>
+                                    </ContentView>
+                                    <StackLayout Padding="10,-4,10,6" Margin="0,-6,0,0" HorizontalOptions="Fill" BackgroundColor="{Binding ItemBottomBackgroundColor}">
+                                        <Label Text="{Binding Date}" FontSize="46" HorizontalTextAlignment="Center" FontFamily="{StaticResource NormalFont}" TextColor="{Binding ItemTextColor}"/>
+                                        <Label Text="{Binding Month}" HorizontalTextAlignment="Center" TextColor="{Binding ItemTextColor}" FontFamily="{StaticResource NormalFont}"/>
+                                    </StackLayout>
+                                   </StackLayout>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </local:HorizontalListview.ItemTemplate>
+                </local:HorizontalListview>
+            </StackLayout>
+
+            <StackLayout HeightRequest="100" HorizontalOptions="FillAndExpand" >
+                    
+                    <!--Time Picker & Horizontal Scroll List-->
+                <TimePicker x:Name="accidentTimePicker" IsVisible="False"  PropertyChanged="OnTimePickerPropertyChanged"  />
+                <local:HorizontalListview Orientation="Horizontal"
+                                      x:Name="accidentTimes"
+                                      ItemSelected="AccidentTime_ItemSelected"
+                                       HorizontalScrollBarVisibility="Never"
+                                      >
+                    <local:HorizontalListview.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame HasShadow="False"
+                                       Padding="0"
+                                       BorderColor="#FAFAFA"
+                                       WidthRequest="180"
+                                       CornerRadius="8"
+                                       BackgroundColor="Transparent" IsClippedToBounds="True"  Margin="2,3,2,3">
+                                    <StackLayout Orientation="Vertical" WidthRequest="180" HorizontalOptions="FillAndExpand">
+                                        <StackLayout Padding="0,2,0,2" Orientation="Horizontal" Margin="0,0,0,-7" HorizontalOptions="Fill" BackgroundColor="{Binding ItemTopBackgroundColor}">
+                                            <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal">
+                                                <Image Source="{Binding ItemIcon}" Margin="8,0,3,5" HeightRequest="16" WidthRequest="16" />
+                                                <Label Text="Time of accident" TextColor="{Binding ItemTextColor}" Margin="0,0,10,5" FontFamily="{StaticResource SemiBoldFont}">
+                                                    <Label.FontSize>
+                                                        <OnPlatform x:TypeArguments="x:Double" iOS="14"/>
+                                                    </Label.FontSize>
+                                                </Label>
+                                            </StackLayout>
+                                        </StackLayout>
+                                        <!--<BoxView HeightRequest="2" HorizontalOptions="Fill" BackgroundColor="{Binding ItemSeparatorColor}"/>-->
+                                        <StackLayout Padding="10" Margin="0,-5,0,0" HorizontalOptions="FillAndExpand" BackgroundColor="{Binding ItemBottomBackgroundColor}">
+                                            <Label Text="{Binding Time}" Margin="5" FontSize="25" HorizontalTextAlignment="Center" TextColor="{Binding ItemTextColor}" FontFamily="{StaticResource NormalFont}"/>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </local:HorizontalListview.ItemTemplate>
+                </local:HorizontalListview>
+            </StackLayout>
+                
+            <StackLayout Orientation="Vertical">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Find Location" TextColor="#FF00314B" Margin="20,0,0,10" FontSize="16"  FontFamily="{StaticResource SemiBoldFont}"/>
+                        <Label x:Name="isValidLocationLabel" HorizontalOptions="EndAndExpand"  TextColor="#ed5249" FontSize="16"  FontFamily="{StaticResource NormalFont}" Margin="0,0,20,10"  />
+                        <ActivityIndicator x:Name="mapActivityIndicator" Color="#00314b" IsEnabled="False" IsRunning="False" WidthRequest="20" HeightRequest="20" Margin="0,0,20,10"/>
+                        
+                    </StackLayout>
+                    <StackLayout HorizontalOptions="Fill" Orientation="Horizontal" Margin="22,0,2,0">
+                        <Grid HorizontalOptions="Fill">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="7*"/>
+                                <ColumnDefinition Width="1.6*"/>
+                            </Grid.ColumnDefinitions>
+                            <Frame BackgroundColor="#FFFFFFFF" OutlineColor="#FFEDECEE" Padding="1" CornerRadius="4" 
+                               BorderColor="#FFEDECEE" x:Name="searchLocationFrame" Grid.Column="0"
+                               HorizontalOptions="Fill" Margin="0,0,0,3" HasShadow="False">
+                                <local:ViaSearchBar 
+                                   HeightRequest="40" x:Name="search_entry" HorizontalOptions="Fill"
+                                   Placeholder="Search Location" TextChanged="Handle_TextChanged"
+                                   FontSize="14"  FontFamily="{StaticResource NormalFont}"/>
+                            </Frame>
+
+                            <Frame Margin="0,0,20,0" IsClippedToBounds="True" BackgroundColor="Transparent" Padding="5" VerticalOptions="Center"
+                                    HasShadow="False" CornerRadius="15" HorizontalOptions="EndAndExpand" Grid.Column="1">
+                                <Image Source="ic_locate_me.png" WidthRequest="30" HeightRequest="30">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="UserLocation" />
+                                    </Image.GestureRecognizers>
+                                </Image>
+                            </Frame>
+                        </Grid>
+                    </StackLayout>
+                          <StackLayout VerticalOptions="Start" HorizontalOptions="Fill"
+                        RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.995}" Margin="3,0,3,0"
+                        RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.99}">
+                           
+ 
+                            <ListView x:Name="places_lv" Footer=" " IsVisible="false" HasUnevenRows="False" WidthRequest="{Binding Path=Width, Source={x:Reference searchLocationFrame}}" ItemTapped="Handle_ItemTapped" >
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <StackLayout Orientation="Horizontal" Padding="5" BackgroundColor="#FFFFFF">
+                                            <Image Source="ic_map_gray.png" HeightRequest="16" WidthRequest="16" Margin="0,0,10,0" />
+                                            <Label Text="{Binding display_name}" FontSize="16"  FontFamily="{StaticResource SemiBoldFont}" TextColor="#4D7EE1" VerticalOptions="CenterAndExpand" />
+                                        </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>      
+                    </StackLayout>
+
+                    <RelativeLayout HeightRequest="300">
+                    <StackLayout VerticalOptions="Start"
+                        RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
+                        Orientation="Vertical">
+                            <controls:MapView x:Name="map" VerticalOptions="StartAndExpand" HeightRequest="300" RotateEnabled="False"/>
+                    </StackLayout>
+                     <Image Source="ic_marker.png" HeightRequest="40" WidthRequest="40"
+                           RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.51, Constant=-23}"
+                           RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.472, Constant=-24}"
+                           x:Name="mapMarker" IsVisible="false"/>
+                        <Frame  RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.51, Constant=-23}"
+                           RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.472, Constant=-24}" IsVisible="False" x:Name="labelFrame" WidthRequest="80" HeightRequest="50" HasShadow="False" BackgroundColor="#FF00314B" CornerRadius="17">
+                            <Label x:Name="locationDetailLabel"
+                                   FontSize="13"  FontFamily="{StaticResource NormalFont}"
+                                   Text="Surinamestraat 27 2585 GJ  Den Haag NETHERLANDS" FontAttributes="None" TextColor="#FFFFFFFF" />
+                        </Frame>
+          
+                </RelativeLayout>
+            </StackLayout>
+
+            <!--<local:ViaMapBox Tapped="ViaMapBox_Tapped" HeightRequest="200"/>-->
+
+                <!--Upload Photos-->
+            <StackLayout Orientation="Vertical" Padding="15,0,15,0" x:Name="uploadPhotos" IsVisible="False">
+                <Frame HasShadow="False" Padding="0" Margin="0,20,0,0" IsClippedToBounds="True">
+                    <StackLayout Orientation="Horizontal" BackgroundColor="#00314b">
+                        <StackLayout BackgroundColor="#001f2f" x:Name="imgLayout">
+                            <Image
+                                Source="ic_gallery.png" WidthRequest="26"
+                                HeightRequest="26" Margin="20"/>
+                        </StackLayout>
+                        <StackLayout HeightRequest="{Binding Path=Width, Source={x:Reference imgLayout}}" BackgroundColor="#00314b" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                            <Label Text="Take a Photo or Select from Library" VerticalOptions="CenterAndExpand"
+                                   FontSize="14"  FontFamily="{StaticResource SemiBoldFont}"
+                                   HorizontalOptions="CenterAndExpand" TextColor="#ffffff"/>
+                        </StackLayout>
+                    </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="SelectUploadOptions" />
+                    </Frame.GestureRecognizers>
+                    <Frame.CornerRadius>
+                        <OnPlatform x:TypeArguments="x:Single" Android="10" iOS="10" />
+                    </Frame.CornerRadius>
+                </Frame>
+                <ScrollView Orientation="Horizontal" Margin="0,0,0,10" HorizontalScrollBarVisibility="Never">
+                    <StackLayout Orientation="Horizontal">
+                        <StackLayout Orientation="Horizontal" x:Name="accidentImagesContainer" />                        
+                        <Frame IsClippedToBounds="True" CornerRadius="8" Padding="0" HasShadow="False" IsVisible="False" Margin="0,5,0,0" x:Name="extraAccidentPhotosFrame">
+                            <StackLayout Orientation="Vertical" HeightRequest="55" WidthRequest="55" BackgroundColor="Gray" HorizontalOptions="CenterAndExpand">
+                                <Label x:Name="extraAccidentPhotosLabel" Text="+3" TextColor="White" FontSize="18" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                                      <Label.GestureRecognizers>
+                                         <TapGestureRecognizer Tapped="ShowExtraAccidentPhotoslabel" />
+                                       </Label.GestureRecognizers>
+                                </Label>
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+        </StackLayout>  
+    </ScrollView>
+    </StackLayout>
+</ContentView>

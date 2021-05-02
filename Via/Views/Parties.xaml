@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+     xmlns:local="clr-namespace:Via.Controls"
+     x:Class="Via.Views.Parties">
+    <ContentView.Content>
+        <StackLayout Orientation="Vertical" Padding="13,5,13,20">
+            <StackLayout Orientation="Horizontal" x:Name="partiesDash" HorizontalOptions="StartAndExpand" Padding="0,5,0,5">
+                <local:ViaFrame CornerRadius="8" HasShadow="False" Padding="0" Margin="0,0,1,0">
+                    <StackLayout HeightRequest="55" WidthRequest="55" HorizontalOptions="Center" VerticalOptions="Center">
+                        <Label Text="Add New Party" FontSize="8" Margin="4" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" XAlign="Center"  />
+                    </StackLayout>
+                    <local:ViaFrame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="AddNewParty" />
+                    </local:ViaFrame.GestureRecognizers>
+                </local:ViaFrame>
+                <local:HorizontalListview Orientation="Horizontal" x:Name="selectedParties" ItemSelected="SelectedParties_ItemSelected" HorizontalScrollBarVisibility="Never">
+                    <local:HorizontalListview.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame IsClippedToBounds="true" BackgroundColor="Default" CornerRadius="8" HasShadow="False" Padding="0" Margin="1,0,1,0">
+                                    <StackLayout HeightRequest="55" WidthRequest="55" BackgroundColor="{Binding BackgroundColor}">
+                                        <Image Source="ic_done.png" IsVisible="{Binding IsValid}" HeightRequest="5" WidthRequest="5" HorizontalOptions="EndAndExpand" />
+                                        <local:Image TintColor="White" HeightRequest="24" WidthRequest="24" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" >
+                                        <local:Image.Source>
+                                            <UriImageSource  CachingEnabled="True"  CacheValidity="23:59:59.0"   Uri="{Binding Icon}" />
+                                        </local:Image.Source>
+                                    </local:Image>
+
+                                    </StackLayout>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </local:HorizontalListview.ItemTemplate>
+                </local:HorizontalListview>
+            </StackLayout>
+            
+            <ScrollView
+                VerticalScrollBarVisibility="Never">
+                <StackLayout x:Name="PartiesStackControl" Orientation="Vertical">
+
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

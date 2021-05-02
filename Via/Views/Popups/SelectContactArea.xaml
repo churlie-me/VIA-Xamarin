@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                 xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+                 x:Class="Via.Views.Popups.SelectContactArea">
+    <!--  Setting animations  -->
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation 
+            DurationIn="400" DurationOut="300"
+            EasingIn="SinOut" EasingOut="SinIn"
+            HasBackgroundAnimation="True" PositionIn="Center"
+            PositionOut="Center" ScaleIn="1.2" ScaleOut="0.8" />
+    </pages:PopupPage.Animation>
+    <StackLayout Orientation="Vertical"
+        Margin="12" BackgroundColor="White" VerticalOptions="CenterAndExpand"
+        HorizontalOptions="FillAndExpand">
+        <StackLayout Orientation="Vertical" HorizontalOptions="Fill" Padding="20" BackgroundColor="#00314A">
+            <Label Text="Choose a Country" TextColor="White" HorizontalOptions="CenterAndExpand"
+                   FontSize="16"  FontFamily="{StaticResource SemiBoldFont}"/>
+        </StackLayout>
+        <StackLayout Padding="24,0,24,24" Orientation="Vertical" HorizontalOptions="CenterAndExpand">
+            <StackLayout HorizontalOptions="CenterAndExpand">
+                <Label x:Name="selectCountry" Text="Choose a country to register, edit or view an accident"
+                        FontFamily="{StaticResource NormalFont}" FontSize="14.5" HorizontalOptions="CenterAndExpand" Margin="0,15,0,10" />
+            </StackLayout>
+            <ListView
+                HeightRequest="170"
+                SelectionMode="None"
+                ItemTapped="OnContactAreaItemTapped"
+                x:Name="selectContactAreaListView"
+                HasUnevenRows="True"
+                BackgroundColor="White"
+                SeparatorVisibility="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame BorderColor="{Binding BorderColor}" BackgroundColor="{Binding BackgroundColor}" Margin="0,0,0,5" Padding="0" CornerRadius="8" HasShadow="False" >
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" Padding="15,5,15,5">
+                                    <Image Source="ic_map_gray.png" HeightRequest="18" WidthRequest="18" Margin="0,0,10,0"/>
+                                    <Label Text="{Binding Country}" FontSize="16"  FontFamily="{StaticResource SemiBoldFont}"/>
+                                </StackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Button Text="Select" FontSize="14"  FontFamily="{StaticResource SemiBoldFont}" BackgroundColor="#39b835" Clicked="SelectionComplete" TextColor="White" CornerRadius="8" Margin="0,20,0,0" />
+        </StackLayout>
+    </StackLayout>
+</pages:PopupPage>

@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Via.App"
+             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+           
+             >
+    <Application.Resources>
+        <ResourceDictionary>
+            <!--Global Styles-->
+            <Color x:Key="NavigationPrimary">#2196F3</Color>
+            <Color x:Key="NavItemBorderColor">#FFFAFAFA</Color>
+            <Color x:Key="PaleGrey">#FFF8FAFB</Color>
+            <Color x:Key="OutlineColor">#FFF1F1F1</Color>
+            <Color x:Key="DarkMint">#FF2ED573</Color>
+
+
+
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="Transparent" />
+                <Setter Property="BarTextColor" Value="Gray" /> 
+                <Setter Property="TitleIcon" Value="Gray"></Setter>
+            </Style>
+            <Style x:Key="MenuLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="22"/>
+                <Setter Property="FontFamily" Value="Titillium#300"/>
+                <Setter Property="FontAttributes" Value="None" />
+                <Setter Property="TextColor" Value="#FF3C3C3C" />
+            </Style>
+             <Style x:Key="PageStyle" TargetType="ContentPage">
+                <Setter Property="BackgroundColor" Value="#fff8fafb" />
+             </Style>
+             
+ 
+            <OnPlatform x:TypeArguments="x:String" x:Key="BoldFont">
+                <On Platform="Android" Value="TitilliumWeb-Bold.ttf" />
+                <On Platform="iOS" Value="TitilliumWeb-Bold" />
+            </OnPlatform>
+            <OnPlatform x:TypeArguments="x:String" x:Key="LightFont">
+                <On Platform="Android" Value="TitilliumWeb-Light.ttf" />
+                <On Platform="iOS" Value="TitilliumWeb-Light" />
+            </OnPlatform>
+            <OnPlatform x:TypeArguments="x:String" x:Key="NormalFont">
+                <On Platform="Android" Value="TitilliumWeb-Regular.ttf" />
+                <On Platform="iOS" Value="TitilliumWeb-Regular" />
+            </OnPlatform>
+          <OnPlatform x:TypeArguments="x:String" x:Key="SemiBoldFont" >
+              <On Platform="Android" Value="TitilliumWeb-SemiBold.ttf" />
+               <On Platform="iOS" Value="TitilliumWeb-SemiBold" />
+          </OnPlatform>
+          
+      </ResourceDictionary>
+    </Application.Resources>
+   </Application>

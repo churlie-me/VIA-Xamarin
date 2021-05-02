@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Via.Views.ImageEnlarge"
+             BackgroundColor="#CC000000"
+             NavigationPage.HasNavigationBar="false">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand">
+            <AbsoluteLayout x:Name="imageAbsolute"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                <Image x:Name="accidentPhoto" HeightRequest="300"  HorizontalOptions="CenterAndExpand" Aspect="AspectFit" Margin="20"/>
+                <ContentView
+                  AbsoluteLayout.LayoutFlags="All"
+                  AbsoluteLayout.LayoutBounds="0, 0.5, 1, 0.2">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                        <Image Source="ic_reverse.png" WidthRequest="35" HeightRequest="35" HorizontalOptions="StartAndExpand" VerticalOptions="Center">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Previous"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                        <Image Source="ic_forward.png" WidthRequest="35" HeightRequest="35" HorizontalOptions="EndAndExpand" VerticalOptions="Center">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Next"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </StackLayout>
+                </ContentView>
+            </AbsoluteLayout>
+            <Frame Padding="0" BorderColor="#ffffff" CornerRadius="0" HasShadow="False" Margin="20,20,20,0">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Padding="10">
+                    <Image HeightRequest="24" WidthRequest="24">
+                        <Image.Source>
+                            <OnPlatform x:TypeArguments="FileImageSource" Android="Resources/ic_delete.png" iOS="ic_delete.png" />
+                        </Image.Source>
+                    </Image>
+                    <Label Text="Delete Image" FontSize="17" TextColor="#ff2349" Margin="5,0,0,0"/>
+                </StackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="DeleteImage"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+            <ImageButton  Source="ic_close.png" BackgroundColor="Transparent" HorizontalOptions="Center" CornerRadius="50" Clicked="CloseReport" HeightRequest="70" WidthRequest="70" Margin="0,10,0,10" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,791 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{714BF9CE-5565-4A56-9938-B1ADD00F0357}</ProjectGuid>
+    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TemplateGuid>{6143fdea-f3c2-4a09-aafa-6e230626515e}</TemplateGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Via.iOS</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>Via3.iOS</AssemblyName>
+    <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchArch>x86_64</MtouchArch>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchDebug>true</MtouchDebug>
+    <CodesignKey>iPhone Developer: Chales Aguma (62ZYPLX924)</CodesignKey>
+    <DocumentationFile>bin\iPhoneSimulator\Debug\Via3.iOS.xml</DocumentationFile>
+    <IOSDebugOverWiFi>true</IOSDebugOverWiFi>
+    <CodesignExtraArgs />
+    <CodesignResourceRules />
+    <CodesignEntitlements />
+    <MtouchProfiling>false</MtouchProfiling>
+    <MtouchFastDev>true</MtouchFastDev>
+    <CodesignProvision>VS: WildCard Development</CodesignProvision>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchLink>None</MtouchLink>
+    <MtouchArch>x86_64</MtouchArch>
+    <ConsolePause>false</ConsolePause>
+    <MtouchDebug>true</MtouchDebug>
+    <IOSDebugOverWiFi>true</IOSDebugOverWiFi>
+    <CodesignProvision>VS: WildCard Development</CodesignProvision>
+    <CodesignKey>iPhone Developer: Chales Aguma (62ZYPLX924)</CodesignKey>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchArch>ARMv7, ARMv7s, ARM64</MtouchArch>
+    <CodesignKey>iPhone Developer: Chales Aguma (62ZYPLX924)</CodesignKey>
+    <MtouchDebug>true</MtouchDebug>
+    <CodesignEntitlements>
+    </CodesignEntitlements>
+    <IOSDebugOverWiFi>true</IOSDebugOverWiFi>
+    <CodesignExtraArgs />
+    <CodesignResourceRules />
+    <BuildIpa>false</BuildIpa>
+    <MtouchLink>None</MtouchLink>
+    <MtouchFastDev>true</MtouchFastDev>
+    <CodesignProvision>VS: WildCard Development</CodesignProvision>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchArch>ARM64</MtouchArch>
+    <ConsolePause>false</ConsolePause>
+    <CodesignKey>iPhone Developer: Chales Aguma (62ZYPLX924)</CodesignKey>
+    <CodesignEntitlements>
+    </CodesignEntitlements>
+    <CodesignProvision>VS: WildCard Development</CodesignProvision>
+    <BuildIpa>true</BuildIpa>
+    <CodesignExtraArgs />
+    <CodesignResourceRules />
+    <IpaIncludeArtwork>false</IpaIncludeArtwork>
+    <MtouchUseLlvm>true</MtouchUseLlvm>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>bin\iPhone\Ad-Hoc</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <MtouchArch>ARM64</MtouchArch>
+    <BuildIpa>True</BuildIpa>
+    <CodesignProvision>VS: WildCard Development</CodesignProvision>
+    <CodesignKey>iPhone Developer: Chales Aguma (62ZYPLX924)</CodesignKey>
+    <CodesignEntitlements>
+    </CodesignEntitlements>
+    <CodesignExtraArgs />
+    <CodesignResourceRules />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AppStore|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>bin\iPhone\AppStore</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <MtouchArch>ARM64</MtouchArch>
+    <CodesignProvision>VS: WildCard Development</CodesignProvision>
+    <CodesignKey>iPhone Developer: Chales Aguma (62ZYPLX924)</CodesignKey>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchDebug>true</MtouchDebug>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'Default' ">
+    <AppExtensionDebugBundleId />
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Main.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <Compile Include="Renderers\CustomContentPageRenderer.cs" />
+    <Compile Include="Renderers\RightButtonRenderer.cs" />
+    <Compile Include="Renderers\LeftButtonRenderer.cs" />
+    <Compile Include="Renderers\HorizontalListviewRenderer.cs" />
+    <Compile Include="Renderers\IconViewRenderer.cs" />
+    <Compile Include="Renderers\NativeiOSCellRenderer.cs" />
+    <Compile Include="Renderers\ViaDatePickerRenderer.cs" />
+    <Compile Include="Renderers\DropdownRenderer.cs" />
+    <Compile Include="Renderers\RightMasterDetailPageRenderer.cs" />
+    <Compile Include="Renderers\ViaFrameRenderer.cs" />
+    <Compile Include="DatabaseService.cs" />
+    <Compile Include="Renderers\ViaMabBoxRenderer.cs" />
+    <Compile Include="Renderers\ViaSearchBarRenderer.cs" />
+    <Compile Include="UserNotificationCenterDelegate.cs" />
+    <Compile Include="Renderers\ViaEntryRenderer.cs" />
+    <Compile Include="Utils\ImageResource.cs" />
+    <None Include="Entitlements.plist" />
+    <None Include="Info.plist" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Renderers\CustomEntryRenderer.cs" />
+    <Compile Include="Renderers\KeyboardViewRenderer.cs" />
+    <Compile Include="Renderers\CustomPageRenderer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\LaunchImages.launchimage\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon1024.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon180.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon167.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon152.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon120.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon87.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon80.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon76.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon60.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon58.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon40.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon29.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon20.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.iOS" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="DLToolkit.Forms.Controls.ImageCropView" Version="1.0.6" />
+    <PackageReference Include="ImageCropper.Forms" Version="0.1.6" />
+    <PackageReference Include="Plugin.LocalNotification">
+      <Version>4.0.5</Version>
+    </PackageReference>
+    <PackageReference Include="Rg.Plugins.Popup" Version="1.1.5.188" />
+    <PackageReference Include="sqlite-net-pcl" Version="1.6.258-beta" />
+    <PackageReference Include="Xam.Plugin.Media" Version="4.0.1.5" />
+    <PackageReference Include="Xam.Plugins.Forms.ImageCircle" Version="3.1.1.1-beta" />
+    <PackageReference Include="Xam.Plugins.Notifier" Version="3.0.1" />
+    <PackageReference Include="Xamarin.FFImageLoading" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.FFImageLoading.Svg">
+      <Version>2.4.11.982</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Forms" Version="3.4.0.1039999" />
+    <PackageReference Include="Xamarin.Forms.InputKit" Version="3.0.5" />
+    <PackageReference Include="Crashlytics">
+      <Version>1.5.0</Version>
+    </PackageReference>
+    <PackageReference Include="Fabric">
+      <Version>1.5.0</Version>
+    </PackageReference>
+    <PackageReference Include="Naxam.Mapbox.iOS">
+      <Version>4.3.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="Plugin.Permissions">
+      <Version>3.0.0.12</Version>
+    </PackageReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <ItemGroup>
+    <BundleResource Include="Resources\Via.png" />
+    <BundleResource Include="Resources\OFL-titillium.txt" />
+    <BundleResource Include="Resources\generator_config.txt" />
+    <BundleResource Include="Resources\TitilliumWeb-Black.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </BundleResource>
+    <BundleResource Include="Resources\TitilliumWeb-Bold.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </BundleResource>
+    <BundleResource Include="Resources\TitilliumWeb-SemiBold.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </BundleResource>
+    <BundleResource Include="Resources\TitilliumWeb-Regular.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </BundleResource>
+    <BundleResource Include="Resources\TitilliumWeb-Light.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </BundleResource>
+    <BundleResource Include="Resources\ic_chevron%402x.png" />
+    <BundleResource Include="Resources\ic_chevron%403x.png" />
+    <BundleResource Include="Resources\ic_close_preview.png" />
+    <BundleResource Include="Resources\ic_close_preview%402x.png" />
+    <BundleResource Include="Resources\ic_close_preview%403x.png" />
+    <BundleResource Include="Resources\ic_forward.png" />
+    <BundleResource Include="Resources\ic_forward%402x.png" />
+    <BundleResource Include="Resources\ic_forward%403x.png" />
+    <BundleResource Include="Resources\ic_back_ios.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_calendar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_map.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SplashScreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SplashScreen%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SplashScreen%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_warning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_delete%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_delete%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_edit%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_edit%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_reportFailed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_reportFailed%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_reportFailed%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_reportSuccess.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_reportSuccess%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_reportSuccess%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\car.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_acc_calendar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_acc_calendar%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_acc_calendar%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_acc_calendar_gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_acc_calendar_gray%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_acc_calendar_gray%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_back%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_back%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_bike_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_bike_white%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_bike_white%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_bus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_bus%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_bus%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_bus_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_bus_white%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_bus_white%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_bycicle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_bycicle%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_bycicle%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_bycicle_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_bycicle_white%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_bycicle_white%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_car.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_car%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_car%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_car_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_car_white%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_car_white%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_close%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_close%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\..\..\Documents\App Icons\car.png">
+      <Link>Resources/car.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\Default-568h@2x.png">
+      <Link>Resources/Default-568h@2x.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\Default-Portrait.png">
+      <Link>Resources/Default-Portrait.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\Default-Portrait@2x.png">
+      <Link>Resources/Default-Portrait@2x.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\Default.png">
+      <Link>Resources/Default.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\Default@2x.png">
+      <Link>Resources/Default@2x.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_accident.png">
+      <Link>Resources/ic_accident.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_accident@2x.png">
+      <Link>Resources/ic_accident@2x.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_accident@3x.png">
+      <Link>Resources/ic_accident@3x.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_accident_white.png">
+      <Link>Resources/ic_accident_white.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_accident_white@2x.png">
+      <Link>Resources/ic_accident_white@2x.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_accident_white@3x.png">
+      <Link>Resources/ic_accident_white@3x.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_acc_calendar.png">
+      <Link>Resources/ic_acc_calendar.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_acc_calendar@2x.png">
+      <Link>Resources/ic_acc_calendar@2x.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_acc_calendar@3x.png">
+      <Link>Resources/ic_acc_calendar@3x.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_acc_calendar_gray.png">
+      <Link>Resources/ic_acc_calendar_gray.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_acc_calendar_gray@2x.png">
+      <Link>Resources/ic_acc_calendar_gray@2x.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_acc_calendar_gray@3x.png">
+      <Link>Resources/ic_acc_calendar_gray@3x.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_back.png">
+      <Link>Resources/ic_back.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_back@2x.png">
+      <Link>Resources/ic_back@2x.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_back@3x.png">
+      <Link>Resources/ic_back@3x.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_bike_white.png">
+      <Link>Resources/ic_bike_white.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_bike_white@2x.png">
+      <Link>Resources/ic_bike_white@2x.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_bike_white@3x.png">
+      <Link>Resources/ic_bike_white@3x.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_bus.png">
+      <Link>Resources/ic_bus.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_bus@2x.png">
+      <Link>Resources/ic_bus@2x.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_bus@3x.png">
+      <Link>Resources/ic_bus@3x.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_bus_white.png">
+      <Link>Resources/ic_bus_white.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_bus_white@2x.png">
+      <Link>Resources/ic_bus_white@2x.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_bus_white@3x.png">
+      <Link>Resources/ic_bus_white@3x.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_bycicle.png">
+      <Link>Resources/ic_bycicle.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_bycicle@2x.png">
+      <Link>Resources/ic_bycicle@2x.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_bycicle@3x.png">
+      <Link>Resources/ic_bycicle@3x.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_bycicle_white.png">
+      <Link>Resources/ic_bycicle_white.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_bycicle_white@2x.png">
+      <Link>Resources/ic_bycicle_white@2x.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_bycicle_white@3x.png">
+      <Link>Resources/ic_bycicle_white@3x.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_calendar.png">
+      <Link>Resources/ic_calendar.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_car.png">
+      <Link>Resources/ic_car.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_car@2x.png">
+      <Link>Resources/ic_car@2x.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_car@3x.png">
+      <Link>Resources/ic_car@3x.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_car_white.png">
+      <Link>Resources/ic_car_white.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_car_white@2x.png">
+      <Link>Resources/ic_car_white@2x.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_car_white@3x.png">
+      <Link>Resources/ic_car_white@3x.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_close.png">
+      <Link>Resources/ic_close.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_close@2x.png">
+      <Link>Resources/ic_close@2x.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_close@3x.png">
+      <Link>Resources/ic_close@3x.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_delete.png">
+      <Link>Resources/ic_delete.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_delete@2x.png">
+      <Link>Resources/ic_delete@2x.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_delete@3x.png">
+      <Link>Resources/ic_delete@3x.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_edit.png">
+      <Link>Resources/ic_edit.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_edit@2x.png">
+      <Link>Resources/ic_edit@2x.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_edit@3x.png">
+      <Link>Resources/ic_edit@3x.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_map.png">
+      <Link>Resources/ic_map.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_map@2x.png">
+      <Link>Resources/ic_map@2x.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_map@3x.png">
+      <Link>Resources/ic_map@3x.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_map_gray.png">
+      <Link>Resources/ic_map_gray.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_map_gray@2x.png">
+      <Link>Resources/ic_map_gray@2x.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_map_gray@3x.png">
+      <Link>Resources/ic_map_gray@3x.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_map_marker.png">
+      <Link>Resources/ic_map_marker.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_map_marker@2x.png">
+      <Link>Resources/ic_map_marker@2x.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_map_marker@3x.png">
+      <Link>Resources/ic_map_marker@3x.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_map_marker_white.png">
+      <Link>Resources/ic_map_marker_white.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_map_marker_white@2x.png">
+      <Link>Resources/ic_map_marker_white@2x.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_map_marker_white@3x.png">
+      <Link>Resources/ic_map_marker_white@3x.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_overview.png">
+      <Link>Resources/ic_overview.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_overview@2x.png">
+      <Link>Resources/ic_overview@2x.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_overview@3x.png">
+      <Link>Resources/ic_overview@3x.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_overviewWhite@3x.png">
+      <Link>Resources/ic_overviewWhite@3x.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_overview_white.png">
+      <Link>Resources/ic_overview_white.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_overview_white@2x.png">
+      <Link>Resources/ic_overview_white@2x.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_parties.png">
+      <Link>Resources/ic_parties.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_parties@2x.png">
+      <Link>Resources/ic_parties@2x.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_parties@3x.png">
+      <Link>Resources/ic_parties@3x.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_parties_white.png">
+      <Link>Resources/ic_parties_white.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_parties_white@2x.png">
+      <Link>Resources/ic_parties_white@2x.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_parties_white@3x.png">
+      <Link>Resources/ic_parties_white@3x.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_reportFailed.png">
+      <Link>Resources/ic_reportFailed.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_reportFailed@2x.png">
+      <Link>Resources/ic_reportFailed@2x.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_reportFailed@3x.png">
+      <Link>Resources/ic_reportFailed@3x.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_reportSuccess.png">
+      <Link>Resources/ic_reportSuccess.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_reportSuccess@2x.png">
+      <Link>Resources/ic_reportSuccess@2x.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_reportSuccess@3x.png">
+      <Link>Resources/ic_reportSuccess@3x.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_timer.png">
+      <Link>Resources/ic_timer.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_timer@2x.png">
+      <Link>Resources/ic_timer@2x.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_timer@3x.png">
+      <Link>Resources/ic_timer@3x.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_walk.png">
+      <Link>Resources/ic_walk.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_walk@2x.png">
+      <Link>Resources/ic_walk@2x.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_walk@3x.png">
+      <Link>Resources/ic_walk@3x.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_walk_white.png">
+      <Link>Resources/ic_walk_white.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_walk_white@2x.png">
+      <Link>Resources/ic_walk_white@2x.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_walk_white@3x.png">
+      <Link>Resources/ic_walk_white@3x.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\ic_warning.png">
+      <Link>Resources/ic_warning.png</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\LaunchScreen.storyboard">
+      <Link>Resources/LaunchScreen.storyboard</Link>
+    </Content>
+    <Content Include="..\..\..\Documents\App Icons\SplashScreen.png">
+      <Link>Resources/SplashScreen.png</Link>
+    </Content>
+    <BundleResource Include="..\..\..\Documents\App Icons\SplashScreen@2x.png">
+      <Link>Resources/SplashScreen@2x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\..\Documents\App Icons\SplashScreen@3x.png">
+      <Link>Resources/SplashScreen@3x.png</Link>
+    </BundleResource>
+    <Content Include="..\..\..\Documents\App Icons\Via.png">
+      <Link>Resources/Via.png</Link>
+    </Content>
+    <BundleResource Include="Resources\poiCar.png" />
+    <BundleResource Include="Resources\ic_next.png" />
+    <BundleResource Include="Resources\ic_next%402x.png" />
+    <BundleResource Include="Resources\ic_next%403x.png" />
+    <BundleResource Include="Resources\ic_clock.png" />
+    <BundleResource Include="Resources\ic_clock%402x.png" />
+    <BundleResource Include="Resources\ic_clock%403x.png" />
+    <BundleResource Include="Resources\ic_clock_white.png" />
+    <BundleResource Include="Resources\ic_clock_white%402x.png" />
+    <BundleResource Include="Resources\ic_clock_white%403x.png" />
+    <BundleResource Include="Resources\ic_carousel_next.png" />
+    <BundleResource Include="Resources\ic_carousel_next%402x.png" />
+    <BundleResource Include="Resources\ic_carousel_next%403x.png" />
+    <BundleResource Include="Resources\ic_carousel_previous.png" />
+    <BundleResource Include="Resources\ic_carousel_previous%402x.png" />
+    <BundleResource Include="Resources\ic_carousel_previous%403x.png" />
+    <BundleResource Include="Resources\ic_remove.png" />
+    <BundleResource Include="Resources\ic_remove%402x.png" />
+    <BundleResource Include="Resources\ic_remove%403x.png" />
+    <BundleResource Include="Resources\ic_gallery.png" />
+    <BundleResource Include="Resources\ic_gallery%402x.png" />
+    <BundleResource Include="Resources\ic_gallery%403x.png" />
+    <BundleResource Include="Resources\add_image.png" />
+    <BundleResource Include="Resources\add_image@2x.png" />
+    <BundleResource Include="Resources\add_image@3x.png" />
+    <BundleResource Include="Resources\ic_marker.png" />
+    <BundleResource Include="Resources\ic_marker%402x.png" />
+    <BundleResource Include="Resources\ic_marker%403x.png" />
+    <BundleResource Include="Resources\ic_done.png" />
+    <BundleResource Include="Resources\ic_done%402x.png" />
+    <BundleResource Include="Resources\ic_done%403x.png" />
+    <BundleResource Include="Resources\ic_done_white.png" />
+    <BundleResource Include="Resources\ic_done_white%402x.png" />
+    <BundleResource Include="Resources\ic_done_white%403x.png" />
+    <BundleResource Include="Resources\ic_close_page.png" />
+    <BundleResource Include="Resources\ic_close_page%402x.png" />
+    <BundleResource Include="Resources\ic_close_page%403x.png" />
+    <BundleResource Include="Resources\ic_exclamation.png" />
+    <BundleResource Include="Resources\ic_exclamation%402x.png" />
+    <BundleResource Include="Resources\ic_exclamation%403x.png" />
+    <BundleResource Include="Resources\iosbackarrow%402x.png" />
+    <BundleResource Include="Resources\ic_locate_me.png" />
+    <BundleResource Include="Resources\ic_locate_me%402x.png" />
+    <BundleResource Include="Resources\ic_locate_me%403x.png" />
+    <BundleResource Include="Resources\car_crash.png" />
+    <BundleResource Include="Resources\car_crash%402x.png" />
+    <BundleResource Include="Resources\car_crash%403x.png" />
+    <BundleResource Include="Resources\car_crash_light.png" />
+    <BundleResource Include="Resources\car_crash_light%402x.png" />
+    <BundleResource Include="Resources\car_crash_light%403x.png" />
+    <BundleResource Include="Resources\ic_edit_avatar.png" />
+    <BundleResource Include="Resources\ic_edit_avatar%402x.png" />
+    <BundleResource Include="Resources\ic_edit_avatar%403x.png" />
+    <BundleResource Include="Resources\ic_left_android.png" />
+    <BundleResource Include="Resources\ic_left_android%402x.png" />
+    <BundleResource Include="Resources\ic_left_android%403x.png" />
+    <BundleResource Include="Resources\ic_report_failed.png" />
+    <BundleResource Include="Resources\ic_report_success.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Via\Via.csproj">
+      <Project>{b55c7057-a715-4643-a281-55b36f15b789}</Project>
+      <Name>Via</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\ic_chevron.png">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ITunesArtwork Include="iTunesArtwork%402x" />
+    <ITunesArtwork Include="iTunesArtwork" />
+  </ItemGroup>
+</Project>

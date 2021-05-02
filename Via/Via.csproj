@@ -1,0 +1,256 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <DefineConstants>DEBUG</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DLToolkit.Forms.Controls.ImageCropView" Version="1.0.6" />
+    <PackageReference Include="ImageCropper.Forms" Version="0.1.6" />
+    <PackageReference Include="Plugin.LocalNotification" Version="4.0.5" />
+    <PackageReference Include="Rg.Plugins.Popup" Version="1.1.5.188" />
+    <PackageReference Include="SkiaSharp" Version="1.68.0" />
+    <PackageReference Include="sqlite-net-pcl" Version="1.6.258-beta" />
+    <PackageReference Include="Xam.Plugin.Geolocator" Version="4.5.0.6" />
+    <PackageReference Include="Xam.Plugin.Media" Version="4.0.1.5" />
+    <PackageReference Include="Xam.Plugins.Forms.ImageCircle" Version="3.0.0.5" />
+    <PackageReference Include="Xam.Plugins.Notifier" Version="3.0.1" />
+    <PackageReference Include="Xamarin.FFImageLoading" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.FFImageLoading.Svg" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.Forms" Version="3.4.0.1039999" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+    <PackageReference Include="Microsoft.Net.Http" Version="2.2.29" />
+    <PackageReference Include="System.Net.Http" Version="4.3.4" />
+    <PackageReference Include="Naxam.Mapbox.Forms" Version="1.0.5.2" />
+    <PackageReference Include="Xamarin.Forms.InputKit" Version="3.0.15" />
+    <PackageReference Include="Plugin.Permissions" Version="3.0.0.12" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Data\Image.cs" />
+    <Compile Remove="Data\ManageImage.cs" />
+    <Compile Remove="Helpers\CustomNavigationPage.cs" />
+    <Compile Remove="Views\DisplayMap.cs" />
+    <Compile Remove="MapViewModel.cs" />
+    <Compile Remove="Utils\BindPosition.cs" />
+    <Compile Remove="Utils\Position.cs" />
+    <Compile Remove="MapViewRenderer.cs" />
+    <Compile Remove="Views\Page1.xaml.cs" />
+    <Compile Remove="XamRes\**" />
+    <Compile Remove="Models\Settings.cs" />
+    <Compile Remove="Views\Popups\UserProBindable.xaml.cs" />
+    <Compile Remove="Views\ChangePassword..xaml.cs" />
+    <Compile Remove="Models\ChangePasswrd.cs" />
+    <Compile Remove="Views\EditEmail.xaml.cs" />
+    <Compile Remove="Views\EditContactInfo.xaml.cs" />
+    <Compile Remove="Views\Popups\AccountSettings.xaml.cs" />
+    <Compile Remove="Views\Popups\AgencyInfo.xaml.cs" />
+    <Compile Remove="Views\Popups\ContactInfo.xaml.cs" />
+    <Compile Remove="Views\Popups\PersonalInformation.xaml.cs" />
+    <Compile Remove="utils\ShadowEffect.cs" />
+    <Compile Remove="CreateReport.xaml.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Views\Popups\ConfirmDelete.xaml.cs">
+      <DependentUpon>ConfirmDelete.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Popups\SelectContactArea.xaml.cs">
+      <DependentUpon>SelectContactArea.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Report.xaml.cs">
+      <DependentUpon>Report.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\SaveReport.xaml.cs">
+      <DependentUpon>SaveReport.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Views\Accident.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\AccidentReports.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Help.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ImageEnlarge.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\MenuPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\PointOfImpact.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Popups\AccountSettings.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Popups\AgencyInfo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Popups\ContactInfo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Popups\PersonalInformation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Popups\SelectContactArea.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Report.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Location.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Overview.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Parties.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ReportOverview.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\SaveReport.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Popups\SelectUploadOption.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\UserProfile.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Remove="XamRes\**" />
+    <EmbeddedResource Remove="Views\Popups\UserProBindable.xaml" />
+    <EmbeddedResource Remove="Views\EditEmail.xaml" />
+    <EmbeddedResource Remove="Views\EditContactInfo.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="XamRes\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Remove="Views\Popups\AccountSettings.xaml" />
+    <Page Remove="Views\Popups\AgencyInfo.xaml" />
+    <Page Remove="Views\Popups\ContactInfo.xaml" />
+    <Page Remove="Views\Popups\PersonalInformation.xaml" />
+    <Page Include="Views\EditProfilePicture.xaml">
+      <SubType>Designer</SubType>
+      <Generator></Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Views\EditAccountSettings.xaml">
+      <SubType>Designer</SubType>
+      <Generator></Generator>
+    </Page>
+    <Page Include="Views\EditPersonalInformation.xaml">
+      <SubType>Designer</SubType>
+      <Generator></Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Mono.Android">
+      <HintPath>C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\MonoAndroid\v8.1\Mono.Android.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\Accident.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\AccidentModes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\AccidentReports.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\ChangePassword.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\CreateReport.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\DisplayMap.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\EditAccountSettings.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\EditContactInfo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\EditEmail.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\EditPersonalInformation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\EditProfilePicture.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\ForgotPassword.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\Help.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\ImageEnlarge.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\Location.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\MenuPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\Overview.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\Parties.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\PointOfImpact.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\Popups\SelectContactArea.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\Popups\SelectUploadOption.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\Report.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\ReportOverview.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\SaveReport.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\SignIn.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\SplashScreen.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\UserProfile.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+  </ItemGroup>
+</Project>

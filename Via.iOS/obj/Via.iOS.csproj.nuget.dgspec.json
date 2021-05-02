@@ -1,0 +1,275 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\CJ\\source\\Workspaces\\VIA Xamarin\\Via.iOS\\Via.iOS.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\CJ\\source\\Workspaces\\VIA Xamarin\\Via.iOS\\Via.iOS.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\CJ\\source\\Workspaces\\VIA Xamarin\\Via.iOS\\Via.iOS.csproj",
+        "projectName": "Via.iOS",
+        "projectPath": "C:\\Users\\CJ\\source\\Workspaces\\VIA Xamarin\\Via.iOS\\Via.iOS.csproj",
+        "packagesPath": "C:\\Users\\CJ\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\CJ\\source\\Workspaces\\VIA Xamarin\\Via.iOS\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\CJ\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "xamarinios10"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "xamarinios10": {
+            "projectReferences": {
+              "C:\\Users\\CJ\\source\\Workspaces\\VIA Xamarin\\Via\\Via.csproj": {
+                "projectPath": "C:\\Users\\CJ\\source\\Workspaces\\VIA Xamarin\\Via\\Via.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "xamarinios10": {
+          "dependencies": {
+            "Crashlytics": {
+              "target": "Package",
+              "version": "[1.5.0, )"
+            },
+            "DLToolkit.Forms.Controls.ImageCropView": {
+              "target": "Package",
+              "version": "[1.0.6, )"
+            },
+            "Fabric": {
+              "target": "Package",
+              "version": "[1.5.0, )"
+            },
+            "ImageCropper.Forms": {
+              "target": "Package",
+              "version": "[0.1.6, )"
+            },
+            "Naxam.Mapbox.iOS": {
+              "target": "Package",
+              "version": "[4.3.0.3, )"
+            },
+            "Plugin.LocalNotification": {
+              "target": "Package",
+              "version": "[4.0.5, )"
+            },
+            "Plugin.Permissions": {
+              "target": "Package",
+              "version": "[3.0.0.12, )"
+            },
+            "Rg.Plugins.Popup": {
+              "target": "Package",
+              "version": "[1.1.5.188, )"
+            },
+            "Xam.Plugin.Media": {
+              "target": "Package",
+              "version": "[4.0.1.5, )"
+            },
+            "Xam.Plugins.Forms.ImageCircle": {
+              "target": "Package",
+              "version": "[3.1.1.1-beta, )"
+            },
+            "Xam.Plugins.Notifier": {
+              "target": "Package",
+              "version": "[3.0.1, )"
+            },
+            "Xamarin.FFImageLoading": {
+              "target": "Package",
+              "version": "[2.4.11.982, )"
+            },
+            "Xamarin.FFImageLoading.Svg": {
+              "target": "Package",
+              "version": "[2.4.11.982, )"
+            },
+            "Xamarin.Forms": {
+              "target": "Package",
+              "version": "[3.4.0.1039999, )"
+            },
+            "Xamarin.Forms.InputKit": {
+              "target": "Package",
+              "version": "[3.0.5, )"
+            },
+            "sqlite-net-pcl": {
+              "target": "Package",
+              "version": "[1.6.258-beta, )"
+            }
+          }
+        }
+      },
+      "runtimes": {
+        "win": {
+          "#import": []
+        },
+        "win-x64": {
+          "#import": []
+        },
+        "win-x86": {
+          "#import": []
+        }
+      }
+    },
+    "C:\\Users\\CJ\\source\\Workspaces\\VIA Xamarin\\Via\\Via.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\CJ\\source\\Workspaces\\VIA Xamarin\\Via\\Via.csproj",
+        "projectName": "Via",
+        "projectPath": "C:\\Users\\CJ\\source\\Workspaces\\VIA Xamarin\\Via\\Via.csproj",
+        "packagesPath": "C:\\Users\\CJ\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\CJ\\source\\Workspaces\\VIA Xamarin\\Via\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\CJ\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
+          "dependencies": {
+            "DLToolkit.Forms.Controls.ImageCropView": {
+              "target": "Package",
+              "version": "[1.0.6, )"
+            },
+            "ImageCropper.Forms": {
+              "target": "Package",
+              "version": "[0.1.6, )"
+            },
+            "Microsoft.Net.Http": {
+              "target": "Package",
+              "version": "[2.2.29, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            },
+            "Naxam.Mapbox.Forms": {
+              "target": "Package",
+              "version": "[1.0.5.2, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "Plugin.LocalNotification": {
+              "target": "Package",
+              "version": "[4.0.5, )"
+            },
+            "Plugin.Permissions": {
+              "target": "Package",
+              "version": "[3.0.0.12, )"
+            },
+            "Rg.Plugins.Popup": {
+              "target": "Package",
+              "version": "[1.1.5.188, )"
+            },
+            "SkiaSharp": {
+              "target": "Package",
+              "version": "[1.68.0, )"
+            },
+            "System.Net.Http": {
+              "target": "Package",
+              "version": "[4.3.4, )"
+            },
+            "Xam.Plugin.Geolocator": {
+              "target": "Package",
+              "version": "[4.5.0.6, )"
+            },
+            "Xam.Plugin.Media": {
+              "target": "Package",
+              "version": "[4.0.1.5, )"
+            },
+            "Xam.Plugins.Forms.ImageCircle": {
+              "target": "Package",
+              "version": "[3.0.0.5, )"
+            },
+            "Xam.Plugins.Notifier": {
+              "target": "Package",
+              "version": "[3.0.1, )"
+            },
+            "Xamarin.FFImageLoading": {
+              "target": "Package",
+              "version": "[2.4.11.982, )"
+            },
+            "Xamarin.FFImageLoading.Forms": {
+              "target": "Package",
+              "version": "[2.4.11.982, )"
+            },
+            "Xamarin.FFImageLoading.Svg": {
+              "target": "Package",
+              "version": "[2.4.11.982, )"
+            },
+            "Xamarin.FFImageLoading.Svg.Forms": {
+              "target": "Package",
+              "version": "[2.4.11.982, )"
+            },
+            "Xamarin.FFImageLoading.Transformations": {
+              "target": "Package",
+              "version": "[2.4.11.982, )"
+            },
+            "Xamarin.Forms": {
+              "target": "Package",
+              "version": "[3.4.0.1039999, )"
+            },
+            "Xamarin.Forms.InputKit": {
+              "target": "Package",
+              "version": "[3.0.15, )"
+            },
+            "sqlite-net-pcl": {
+              "target": "Package",
+              "version": "[1.6.258-beta, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

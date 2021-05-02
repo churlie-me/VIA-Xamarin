@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:map="clr-namespace:Naxam.Controls.Mapbox.Forms;assembly=Naxam.Mapbox.Forms"
+             xmlns:local="clr-namespace:Via.Controls"
+             xmlns:helpers="clr-namespace:Via.Helpers"
+             x:Class="Via.Views.Report"
+             NavigationPage.HasNavigationBar="false">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <helpers:ImageConverter x:Key="ByteArrayToImage"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView VerticalScrollBarVisibility="Never">
+            <StackLayout Padding="15,15,15,15" BackgroundColor="#f1f1f1">
+                <Frame Padding="10" CornerRadius="10" HasShadow="False" x:Name="reportFrame">
+                    <StackLayout Orientation="Vertical">
+                        <Label Text="SEN201900000000054" x:Name="reportID"
+                               FontFamily="{StaticResource NormalFont}" FontSize="17" TextColor="#00314b" Margin="0,0,0,10"/>
+                        <Grid HorizontalOptions="Fill">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="5*" />
+                            </Grid.ColumnDefinitions>
+                            <StackLayout Orientation="Horizontal" Grid.Column="0">
+                                <Image HeightRequest="16" WidthRequest="16">
+                                    <Image.Source>
+                                        <OnPlatform x:TypeArguments="FileImageSource" Android="Resources/ic_map_gray.png" iOS="ic_map_gray.png" />
+                                    </Image.Source>
+                                </Image>
+                                <Label Text="Wageinegen, Netherlands" x:Name="selectedLocation"
+                                       FontSize="10"
+                                       FontFamily="{StaticResource SemiBoldFont}"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" Grid.Column="1">
+                                <Image HeightRequest="16" WidthRequest="16">
+                                    <Image.Source>
+                                        <OnPlatform x:TypeArguments="FileImageSource" Android="Resources/ic_acc_calendar_gray.png" iOS="ic_acc_calendar_gray.png" />
+                                    </Image.Source>
+                                </Image>
+                                <Label Text="05 Mar 12:02pm" x:Name="accidentDateTime" FontSize="10" FontFamily="{StaticResource SemiBoldFont}"/>
+                            </StackLayout>
+                        </Grid>
+                        
+                        <ActivityIndicator x:Name="reportActivityIndicator" Color="#2ed573" IsRunning="true" VerticalOptions="Center" HorizontalOptions="Center" />
+                        <StackLayout x:Name="reportDetails" IsVisible="false">
+                            <StackLayout Orientation="Vertical" Margin="0,10,0,10">
+                                <map:MapView x:Name="map" VerticalOptions="Start"/>
+                            </StackLayout>
+                            <StackLayout x:Name="accidentOverview" />
+                            <Label Text="Photos from Accident" FontFamily="{StaticResource SemiBoldFont}" FontSize="16" TextColor="#00314b" Margin="0,0,0,5"/>
+                            <local:HorizontalListview Orientation="Horizontal" x:Name="accidentPhotos" HorizontalScrollBarVisibility="Never">
+                                <local:HorizontalListview.ItemTemplate >
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <Frame AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All"
+                                                                                   IsClippedToBounds="True"
+                                                                                   BorderColor="White"
+                                                                                   CornerRadius="10"
+                                                                                   Padding="0"
+                                                                                   HasShadow="False"
+                                                                                   Margin="0,7,7,0"
+                                                                                   HeightRequest="55"
+                                                                                   WidthRequest="55">
+                                                <Image Aspect="Fill" HeightRequest="55" WidthRequest="55"  Source="{Binding Url, Converter={StaticResource ByteArrayToImage}}"/>
+                                            </Frame>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </local:HorizontalListview.ItemTemplate>
+                            </local:HorizontalListview>
+                            <!--<StackLayout Orientation="Vertical" HorizontalOptions="StartAndExpand" 
+                                 x:Name="uploadPhotos" Margin="0,0,0,15">
+                                <ScrollView Orientation="Horizontal" Margin="0,0,0,10" HorizontalScrollBarVisibility="Never">
+                                    <StackLayout Orientation="Horizontal">
+                                        <StackLayout Orientation="Horizontal" x:Name="accidentImagesContainer" />
+
+                                        <Frame CornerRadius="8" Padding="0" HasShadow="False" IsVisible="False" Margin="0,5,0,0" x:Name="extraAccidentPhotosFrame">
+                                            <StackLayout Orientation="Vertical" HeightRequest="55" WidthRequest="55" BackgroundColor="Gray" HorizontalOptions="CenterAndExpand">
+                                                <Label x:Name="extraAccidentPhotosLabel" Text="+3" TextColor="White" FontSize="18" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+                                            </StackLayout>
+                                        </Frame>
+                                    </StackLayout>
+                                </ScrollView>
+                            </StackLayout>-->
+                        </StackLayout>
+
+                        <Frame Padding="0" BorderColor="#00314b" CornerRadius="8" Margin="0,0,0,10" HasShadow="False">
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Padding="10">
+                                <Label Text="View Full Report" FontSize="17" TextColor="#00314b"
+                                       FontFamily="{StaticResource BoldFont}"/>
+                            </StackLayout>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="ViewReportOverview" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+                        <Frame Padding="0" BorderColor="#16bae7" CornerRadius="8" Margin="0,0,0,10" HasShadow="False">
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Padding="10">
+                                <Image HeightRequest="24" WidthRequest="24"  Source="ic_edit.png" />
+                                <Label Text="Edit Report" FontSize="17" TextColor="#16bae7" Margin="5,0,0,0"
+                                       FontFamily="{StaticResource BoldFont}"/>
+                            </StackLayout>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="EditReport"/>
+                            </Frame.GestureRecognizers>
+                        </Frame>
+                        <Frame Padding="0" BorderColor="#ff2349" CornerRadius="8" HasShadow="False">
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Padding="10">
+                                <Image HeightRequest="24" WidthRequest="24" Source="ic_delete.png" />
+                                <Label Text="Delete Report" FontSize="17" TextColor="#ff2349" Margin="5,0,0,0"
+                                       FontFamily="{StaticResource BoldFont}" />
+                            </StackLayout>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="DeleteReport"/>
+                            </Frame.GestureRecognizers>
+                        </Frame>
+                    </StackLayout>
+                </Frame>
+                <ImageButton x:Name="closeReport" BackgroundColor="Transparent" HorizontalOptions="Center" CornerRadius="50" Clicked="CloseReport" HeightRequest="70" WidthRequest="70" Margin="0,10,0,10">
+                    <ImageButton.Source>
+                        <OnPlatform x:TypeArguments="FileImageSource" Android="Resources/ic_close.png" iOS="ic_close.png" />
+                    </ImageButton.Source>
+                </ImageButton>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

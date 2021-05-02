@@ -1,0 +1,54 @@
+{
+  "version": 2,
+  "dgSpecHash": "BZkEq+79AUq/dCEKd99i4pyD4V4qigL854s35XjdxRlmc+BE+V0VZDTw6zSodZRDcgxsIdoFM0QHPaGG98yjtQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\CJ\\source\\Workspaces\\VIA Xamarin\\Via.iOS\\Via.iOS.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\CJ\\.nuget\\packages\\crashlytics\\1.5.0\\crashlytics.1.5.0.nupkg.sha512",
+    "C:\\Users\\CJ\\.nuget\\packages\\dltoolkit.forms.controls.imagecropview\\1.0.6\\dltoolkit.forms.controls.imagecropview.1.0.6.nupkg.sha512",
+    "C:\\Users\\CJ\\.nuget\\packages\\fabric\\1.5.0\\fabric.1.5.0.nupkg.sha512",
+    "C:\\Users\\CJ\\.nuget\\packages\\imagecropper.forms\\0.1.6\\imagecropper.forms.0.1.6.nupkg.sha512",
+    "C:\\Users\\CJ\\.nuget\\packages\\microsoft.bcl\\1.1.10\\microsoft.bcl.1.1.10.nupkg.sha512",
+    "C:\\Users\\CJ\\.nuget\\packages\\microsoft.bcl.build\\1.0.14\\microsoft.bcl.build.1.0.14.nupkg.sha512",
+    "C:\\Users\\CJ\\.nuget\\packages\\microsoft.net.http\\2.2.29\\microsoft.net.http.2.2.29.nupkg.sha512",
+    "C:\\Users\\CJ\\.nuget\\packages\\naxam.mapbox.forms\\1.0.5.2\\naxam.mapbox.forms.1.0.5.2.nupkg.sha512",
+    "C:\\Users\\CJ\\.nuget\\packages\\naxam.mapbox.ios\\4.3.0.3\\naxam.mapbox.ios.4.3.0.3.nupkg.sha512",
+    "C:\\Users\\CJ\\.nuget\\packages\\newtonsoft.json\\12.0.1\\newtonsoft.json.12.0.1.nupkg.sha512",
+    "C:\\Users\\CJ\\.nuget\\packages\\plugin.localnotification\\4.0.5\\plugin.localnotification.4.0.5.nupkg.sha512",
+    "C:\\Users\\CJ\\.nuget\\packages\\plugin.permissions\\3.0.0.12\\plugin.permissions.3.0.0.12.nupkg.sha512",
+    "C:\\Users\\CJ\\.nuget\\packages\\rg.plugins.popup\\1.1.5.188\\rg.plugins.popup.1.1.5.188.nupkg.sha512",
+    "C:\\Users\\CJ\\.nuget\\packages\\skiasharp\\1.68.0\\skiasharp.1.68.0.nupkg.sha512",
+    "C:\\Users\\CJ\\.nuget\\packages\\sqlite-net-pcl\\1.6.258-beta\\sqlite-net-pcl.1.6.258-beta.nupkg.sha512",
+    "C:\\Users\\CJ\\.nuget\\packages\\sqlitepclraw.bundle_green\\1.1.13\\sqlitepclraw.bundle_green.1.1.13.nupkg.sha512",
+    "C:\\Users\\CJ\\.nuget\\packages\\sqlitepclraw.core\\1.1.13\\sqlitepclraw.core.1.1.13.nupkg.sha512",
+    "C:\\Users\\CJ\\.nuget\\packages\\sqlitepclraw.provider.sqlite3.ios_unified\\1.1.13\\sqlitepclraw.provider.sqlite3.ios_unified.1.1.13.nupkg.sha512",
+    "C:\\Users\\CJ\\.nuget\\packages\\system.net.http\\4.3.4\\system.net.http.4.3.4.nupkg.sha512",
+    "C:\\Users\\CJ\\.nuget\\packages\\webp.touch\\1.0.8\\webp.touch.1.0.8.nupkg.sha512",
+    "C:\\Users\\CJ\\.nuget\\packages\\xam.plugin.geolocator\\4.5.0.6\\xam.plugin.geolocator.4.5.0.6.nupkg.sha512",
+    "C:\\Users\\CJ\\.nuget\\packages\\xam.plugin.media\\4.0.1.5\\xam.plugin.media.4.0.1.5.nupkg.sha512",
+    "C:\\Users\\CJ\\.nuget\\packages\\xam.plugins.forms.imagecircle\\3.1.1.1-beta\\xam.plugins.forms.imagecircle.3.1.1.1-beta.nupkg.sha512",
+    "C:\\Users\\CJ\\.nuget\\packages\\xam.plugins.notifier\\3.0.1\\xam.plugins.notifier.3.0.1.nupkg.sha512",
+    "C:\\Users\\CJ\\.nuget\\packages\\xamarin.ffimageloading\\2.4.11.982\\xamarin.ffimageloading.2.4.11.982.nupkg.sha512",
+    "C:\\Users\\CJ\\.nuget\\packages\\xamarin.ffimageloading.forms\\2.4.11.982\\xamarin.ffimageloading.forms.2.4.11.982.nupkg.sha512",
+    "C:\\Users\\CJ\\.nuget\\packages\\xamarin.ffimageloading.svg\\2.4.11.982\\xamarin.ffimageloading.svg.2.4.11.982.nupkg.sha512",
+    "C:\\Users\\CJ\\.nuget\\packages\\xamarin.ffimageloading.svg.forms\\2.4.11.982\\xamarin.ffimageloading.svg.forms.2.4.11.982.nupkg.sha512",
+    "C:\\Users\\CJ\\.nuget\\packages\\xamarin.ffimageloading.transformations\\2.4.11.982\\xamarin.ffimageloading.transformations.2.4.11.982.nupkg.sha512",
+    "C:\\Users\\CJ\\.nuget\\packages\\xamarin.forms\\3.4.0.1039999\\xamarin.forms.3.4.0.1039999.nupkg.sha512",
+    "C:\\Users\\CJ\\.nuget\\packages\\xamarin.forms.inputkit\\3.0.5\\xamarin.forms.inputkit.3.0.5.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1605",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Detected package downgrade: Xamarin.Forms.InputKit from 3.0.15 to 3.0.5. Reference the package directly from the project to select a different version. \r\n Via.iOS -> Via -> Xamarin.Forms.InputKit (>= 3.0.15) \r\n Via.iOS -> Xamarin.Forms.InputKit (>= 3.0.5)",
+      "libraryId": "Xamarin.Forms.InputKit",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    }
+  ]
+}

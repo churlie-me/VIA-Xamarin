@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:map="clr-namespace:Naxam.Controls.Mapbox.Forms;assembly=Naxam.Mapbox.Forms"
+             xmlns:local="clr-namespace:Via.Controls"
+             xmlns:helpers="clr-namespace:Via.Helpers"
+             x:Class="Via.Views.ReportOverview">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <helpers:ImageConverter x:Key="ByteArrayToImage"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView VerticalScrollBarVisibility="Never">
+            <StackLayout x:Name="overviewStack" Orientation="Vertical" Padding="15,10,15,0">
+                <!--Location Overview-->
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Location"
+                           FontFamily="{StaticResource SemiBoldFont}"
+                           TextColor="#00314b"
+                           FontSize="18" />
+                    <!--<Button x:Name="editLocation" Clicked="OnEditLocation" CornerRadius="10" HeightRequest="32" FontSize="12" Text="Edit" Padding="4" BackgroundColor="DeepSkyBlue" HorizontalOptions="EndAndExpand" TextColor="White"/>-->
+                </StackLayout>
+                <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" Color="#000000" Margin="0,0,0,5"/>
+
+                <StackLayout Orientation="Vertical">
+                    <StackLayout Orientation="Horizontal" Margin="0,0,0,5">
+                        <Image HeightRequest="16" WidthRequest="16">
+                            <Image.Source>
+                                <OnPlatform x:TypeArguments="FileImageSource" Android="Resources/ic_map_gray.png" iOS="ic_map_gray.png" />
+                            </Image.Source>
+                        </Image>
+                        <Label Text="Surinamestraat 27 2585 GJ Den Haag" VerticalOptions="Start" x:Name="selectedLocation"/>
+                    </StackLayout>
+                    <map:MapView x:Name="map" VerticalOptions="Start"/>
+                </StackLayout>
+
+                <!--Accident Overview-->
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Accident" TextColor="#00314b" FontFamily="{StaticResource SemiBoldFont}" FontSize="18" />
+                    <!--<Button x:Name="editAccident" Clicked="OnEditAccident" CornerRadius="10" HeightRequest="32" FontSize="12" Text="Edit" Padding="4" BackgroundColor="DeepSkyBlue" HorizontalOptions="EndAndExpand" TextColor="White"/>-->
+                </StackLayout>
+                <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" Color="#000000" Margin="0,0,0,5"/>
+                <StackLayout x:Name="accidentOverview">
+
+                </StackLayout>
+                <StackLayout x:Name="accidentPhotoStack">
+                    <Label Text="Pictures from accident scene"  FontSize="17" Margin="0,0,0,15" FontFamily="{StaticResource SemiBoldFont}"/>
+                    <local:HorizontalListview Orientation="Horizontal" x:Name="accidentPhotos" HorizontalScrollBarVisibility="Never">
+                        <local:HorizontalListview.ItemTemplate >
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Frame AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All"
+                                                                                   IsClippedToBounds="True"
+                                                                                   BorderColor="White"
+                                                                                   CornerRadius="10"
+                                                                                   Padding="0"
+                                                                                   HasShadow="False"
+                                                                                   Margin="0,7,7,0"
+                                                                                   HeightRequest="55"
+                                                                                   WidthRequest="55">
+                                        <Image Aspect="Fill" HeightRequest="55" WidthRequest="55"  Source="{Binding Url, Converter={StaticResource ByteArrayToImage}}"/>
+                                    </Frame>
+                                </ViewCell>
+                            </DataTemplate>
+                        </local:HorizontalListview.ItemTemplate>
+                    </local:HorizontalListview>
+                </StackLayout>
+                <!--<StackLayout Orientation="Vertical" HorizontalOptions="StartAndExpand" 
+                             x:Name="uploadPhotos" Margin="0,0,0,15">
+                    <ScrollView Orientation="Horizontal" Margin="0,0,0,10" HorizontalScrollBarVisibility="Never">
+                        <StackLayout Orientation="Horizontal">
+                            <StackLayout Orientation="Horizontal" x:Name="accidentImagesContainer" />
+
+                            <Frame CornerRadius="8" Padding="0" HasShadow="False" IsVisible="False" Margin="0,5,0,0" x:Name="extraAccidentPhotosFrame">
+                                <StackLayout Orientation="Vertical" HeightRequest="55" WidthRequest="55" BackgroundColor="Gray" HorizontalOptions="CenterAndExpand">
+                                    <Label x:Name="extraAccidentPhotosLabel" Text="+3" TextColor="White" FontSize="18" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </ScrollView>
+                </StackLayout>-->
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Parties Involved"  FontSize="16" FontFamily="{StaticResource SemiBoldFont}" />
+                </StackLayout>
+                <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" Color="#000000" Margin="0,0,0,5"/>
+                <StackLayout Orientation="Vertical">
+                    <StackLayout Orientation="Vertical" x:Name="partiesOverview" />
+                    <Button Text="Submit Report" BackgroundColor="Green" Clicked="SubmitReportAsync" CornerRadius="10" TextColor="White" Margin="0,10,0,10" />
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

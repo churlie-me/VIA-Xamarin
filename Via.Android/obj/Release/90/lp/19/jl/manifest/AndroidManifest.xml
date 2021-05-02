@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.mapbox.android.telemetry" android:versionCode="1" android:versionName="3.1.5">
+  <!-- TODO Remove comment after analyzing the impact on the performance when adding SchedulerFlusherJobService -->
+  <!-- <application> -->
+  <!-- <service -->
+  <!-- android:name="com.mapbox.android.telemetry.SchedulerFlusherJobService" -->
+  <!-- android:permission="android.permission.BIND_JOB_SERVICE"/> -->
+  <!-- </application> -->
+  <uses-sdk android:minSdkVersion="14" android:targetSdkVersion="26" />
+  <application>
+    <service android:name="com.mapbox.android.telemetry.TelemetryService" />
+  </application>
+</manifest>

@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                 xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+                 xmlns:custom="clr-namespace:Via.Controls"
+                 x:Class="Via.Views.Popups.ConfirmDelete">
+    <!--  Setting animations  -->
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation 
+            DurationIn="400" DurationOut="300"
+            EasingIn="SinOut" EasingOut="SinIn"
+            HasBackgroundAnimation="True" PositionIn="Center"
+            PositionOut="Center" ScaleIn="1.2" ScaleOut="0.8" />
+    </pages:PopupPage.Animation>
+    <Frame CornerRadius="10" Margin="12" BackgroundColor="White" Padding="0"
+           VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+        <StackLayout Orientation="Vertical">
+            <StackLayout Orientation="Vertical" HorizontalOptions="Fill" Padding="20">
+                <Label Text="Delete Report" TextColor="#ff1b49" FontFamily="{StaticResource SemiBoldFont}"
+                   HorizontalTextAlignment="Center"  FontSize="24"
+                   HorizontalOptions="CenterAndExpand" />
+            </StackLayout>
+            <StackLayout Padding="24,0,24,24" Orientation="Vertical" HorizontalOptions="CenterAndExpand">
+                <Label Text="Are you sure you wish to delete this report?"
+                   TextColor="#4c5264"  FontSize="16"
+                   HorizontalTextAlignment="Center" 
+                   HorizontalOptions="CenterAndExpand" />
+                <Grid Margin="0,20,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="2*" />
+                    </Grid.ColumnDefinitions>
+                    <custom:LeftButton Text="YES" FontSize="14"  FontFamily="{StaticResource SemiBoldFont}" 
+                                      BackgroundColor="#39b835" Clicked="OnConfirm" TextColor="White" Grid.Column="0"/>
+                    <custom:RightButton Text="NO" FontSize="14"  FontFamily="{StaticResource SemiBoldFont}" 
+                                      BackgroundColor="#39b835" Clicked="OnCancel" TextColor="White" Grid.Column="1"/>
+                </Grid>
+            </StackLayout>
+        </StackLayout>
+    </Frame>
+</pages:PopupPage>

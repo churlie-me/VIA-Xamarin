@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="Via.Views.AccidentModes"
+    BackgroundColor="#f8fafb"
+    xmlns:local="clr-namespace:Via.Controls"
+    NavigationPage.HasNavigationBar="False">
+    <RelativeLayout>
+        <StackLayout VerticalOptions="Start"
+                    RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
+                     Orientation="Vertical" Padding="10">
+            <StackLayout.Margin>
+                <OnPlatform x:TypeArguments="Thickness" iOS="0,20,0,40" Android="0,0,0,40"/>
+            </StackLayout.Margin>
+          <!-- Top Content -->
+            <StackLayout Orientation="Horizontal" Margin="5,0,0,5">
+                <Label Text="Select Items Involved"  FontSize="20" Margin="0,10,50,0"
+                         FontFamily="{StaticResource SemiBoldFont}"
+                       />
+                <Image Source="ic_close_page.png"
+                  
+                       HeightRequest="36" WidthRequest="36" Margin="0,0,5,0" HorizontalOptions="EndAndExpand">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ClosePage" />
+                    </Image.GestureRecognizers>
+                </Image>
+            </StackLayout>
+            <Frame HasShadow="False" Padding="1" CornerRadius="4" BorderColor="LightSlateGray" x:Name="searchFrame" HorizontalOptions="FillAndExpand">
+                <local:ViaSearchBar BackgroundColor="White"
+                                    HorizontalOptions="Fill" 
+                                    HeightRequest="40"
+                                    FontSize="14"
+                                    FontFamily="{StaticResource NormalFont}"
+                                    Placeholder="Search for involved parties" 
+                                    TextChanged="AccidentSearchBar_TextChanged" Margin="2,0,2,0" />
+            </Frame>
+            <ListView x:Name="accidentModes"
+                      BackgroundColor="White"
+                       Footer=""
+                      AbsoluteLayout.LayoutBounds="0,0,1,1" SelectionMode="None" AbsoluteLayout.LayoutFlags="All" ItemTapped="AccidentMode_Tapped">  
+            <ListView.ItemTemplate>  
+                <DataTemplate>
+                        <local:NativeCell BackgroundColor="{Binding BackgroundColor}">
+                            <Frame
+                            HasShadow="false"
+                            CornerRadius="20"
+                            Padding="0"
+                            BackgroundColor="{Binding BackgroundColor}"
+                            Margin="2,2,2,5">
+                                <StackLayout
+                                Orientation="Horizontal"
+                                Padding="10, 5, 10, 5"
+                                VerticalOptions="CenterAndExpand">
+                                    <local:Image TintColor="{Binding TextColor}"   HeightRequest = "16" WidthRequest = "16" Margin ="0, 0, 12, 0" >
+                                        <local:Image.Source>
+                                            <UriImageSource  CachingEnabled="True"  CacheValidity="23:59:59.0"   Uri="{Binding Icon}" />
+                                        </local:Image.Source>
+                                    </local:Image>
+                                    <Label Text="{Binding Title}" TextColor="{Binding TextColor}"
+                                           FontSize="16"
+                                               FontFamily="{StaticResource SemiBoldFont}"/>
+                                    <Image Source="ic_done_white.png" IsVisible="{Binding IsSelected}" HeightRequest="18" WidthRequest="18" HorizontalOptions="EndAndExpand"/>
+                                </StackLayout>
+                        </Frame>
+                    </local:NativeCell>
+                </DataTemplate>  
+            </ListView.ItemTemplate>  
+        </ListView>
+        
+        </StackLayout>
+
+        <StackLayout VerticalOptions="End"
+                     HorizontalOptions="CenterAndExpand" x:Name="lowerStack"
+                          RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
+                          RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.90}"
+                          RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.1}">
+
+          <!-- Bottom Content -->
+          <Button CornerRadius="8" Text="Continue" BackgroundColor="#39b835" WidthRequest="{Binding Path=Width, Source={x:Reference lowerStack}}"
+                        TextColor="White" Margin="10,5,10,5" HorizontalOptions="CenterAndExpand" Clicked="DoneSelectingModes"/>
+        </StackLayout>
+</RelativeLayout>
+</ContentPage>

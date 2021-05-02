@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Plugin.InputKit.Shared.Controls;assembly=Plugin.InputKit"
+             xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:ic="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             Title="Settings"
+             NavigationPage.HasNavigationBar="True"
+             BackgroundColor="#ffffff"
+             x:Class="Via.Views.UserProfile">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness" iOS="0,25,0,0" />
+    </ContentPage.Padding>
+    <ContentPage.Content>
+        <ScrollView Orientation="Vertical">
+            <StackLayout Orientation="Vertical" Padding="38">
+                <StackLayout Orientation="Vertical">
+                    <ic:CircleImage HeightRequest="130" BorderColor="#2ED573"
+                                WidthRequest="130" Aspect="AspectFill" x:Name="profile_img"
+                                HorizontalOptions="CenterAndExpand" BorderThickness="4"/>
+                    <Label Text="John Doe"
+                       FontFamily="{StaticResource BoldFont}"
+                       x:Name="userNames" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="30" Margin="0,15,0,15" />
+                </StackLayout>
+                <StackLayout Orientation="Vertical">
+                    <Frame HasShadow="False" CornerRadius="10" Margin="0,0,0,5" BackgroundColor="#FAFAFA">
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Change Password"
+                               FontFamily="{StaticResource SemiBoldFont}"  TextColor="#535376" FontSize="14" HorizontalOptions="StartAndExpand"/>
+                            <Image Source="ic_chevron.png" WidthRequest="20" HeightRequest="20" HorizontalOptions="End" />
+                        </StackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ChangePassword" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                    <Frame HasShadow="False" CornerRadius="10" Margin="0,0,0,5" BackgroundColor="#FAFAFA">
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Personal Information"
+                               FontFamily="{StaticResource SemiBoldFont}"
+                               TextColor="#535376" FontSize="14" HorizontalOptions="StartAndExpand"/>
+                            <Image Source="ic_chevron.png" WidthRequest="20" HeightRequest="20" HorizontalOptions="End" />
+                        </StackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ShowProfileInfo" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                    <Frame HasShadow="False" CornerRadius="10" Margin="0,0,0,5" BackgroundColor="#FAFAFA">
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Change Avatar"
+                               FontFamily="{StaticResource SemiBoldFont}"
+                               TextColor="#535376" FontSize="14" HorizontalOptions="StartAndExpand"/>
+                            <Image Source="ic_chevron.png" WidthRequest="20" HeightRequest="20" HorizontalOptions="End" />
+                        </StackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ChangeAvatar" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+
+                    <!--<Frame HasShadow="False" CornerRadius="10" Margin="0,0,0,5" BackgroundColor="#FAFAFA">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Language" TextColor="#535376" FontSize="16" HorizontalOptions="StartAndExpand"/>
+                        <Image Source="ic_chevron.png" WidthRequest="20" HeightRequest="20" HorizontalOptions="End" />
+                    </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ChangePassword" />
+                    </Frame.GestureRecognizers>
+                </Frame>-->
+                    <Frame HasShadow="False" CornerRadius="10" Margin="0,0,0,5" BackgroundColor="#FAFAFA">
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Account Settings" TextColor="#535376"
+                               FontFamily="{StaticResource SemiBoldFont}"
+                               FontSize="14" HorizontalOptions="StartAndExpand"/>
+                            <Image Source="ic_chevron.png" WidthRequest="20" HeightRequest="20" HorizontalOptions="End" />
+                        </StackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="AccountSettings" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

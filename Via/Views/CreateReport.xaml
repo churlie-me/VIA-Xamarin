@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:CustomContentPage
+    xmlns:views="clr-namespace:Via.Views"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:ic="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             x:Class="Via.Views.CreateReport"
+             EnableBackButtonOverride="True"
+     NavigationPage.HasNavigationBar="False"
+             Title="Create Report">
+
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand"
+                         AbsoluteLayout.LayoutBounds="0,0,1,1"
+                         AbsoluteLayout.LayoutFlags="All">
+                 <StackLayout Orientation="Horizontal">
+                     <StackLayout.Margin>
+                        <OnPlatform x:TypeArguments="Thickness" Android="20,15,20,0" iOS="20,60,20,0" />
+                     </StackLayout.Margin>
+                    <Image Margin="0,-4,0,0" WidthRequest="28" HeightRequest="28" HorizontalOptions="Start" VerticalOptions="CenterAndExpand">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Tapped="OnTapImageGestureRecognizerTapped"/>
+                        </Image.GestureRecognizers>
+                        <Image.Source>
+                            <OnPlatform x:TypeArguments="FileImageSource" Android="ic_left_android.png" iOS="ic_back_ios.png" />
+                        </Image.Source>
+                    </Image>
+                    <Label Text="Create Report" VerticalOptions="CenterAndExpand"  x:Name="pageTitle" FontFamily="{StaticResource NormalFont}"  TextColor="#00314b" FontSize="20" />
+                    <Frame HasShadow="False" Padding="0" BackgroundColor="#00314A"
+                        HorizontalOptions="EndAndExpand">
+                        <StackLayout HeightRequest="50" WidthRequest="50">
+                            <ic:CircleImage HeightRequest="50" WidthRequest="50"  Aspect="AspectFill" x:Name="profileAvatar" />
+                        </StackLayout>
+                        <!--<Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ShowNavigationDrawer" />
+                        </Frame.GestureRecognizers>-->
+                        <Frame.CornerRadius>
+                            <OnPlatform x:TypeArguments="x:Single" Android="50" iOS="25" />
+                        </Frame.CornerRadius>
+                    </Frame>
+            </StackLayout>
+                <StackLayout x:Name="ReportNav" Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Margin="2,3,0,2">
+                    <Frame Padding="0" HasShadow="False" BorderColor="#FAFAFA" CornerRadius="8" x:Name="locationFrame">
+                        <StackLayout Padding="0,0,0,8" WidthRequest="94.4298095703125" HeightRequest="68.3360595703125" >
+                            <Image Source="" HeightRequest="10" WidthRequest="10" Margin="10,5,10,0" HorizontalOptions="EndAndExpand" />
+                            <Image HeightRequest="18" WidthRequest="20" Margin="0,0,0,0">
+                                <Image.Source>
+                                    <OnPlatform x:TypeArguments="FileImageSource" Android="ic_map_marker.png" iOS="ic_map_marker.png" />
+                                </Image.Source>
+                            </Image>
+                            <Label Text="Location" FontSize="12" HorizontalOptions="Center" FontFamily="{StaticResource BoldFont}" Margin="0,-2,0,10" />
+                            
+
+                        </StackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnLocationTapped"/>
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                    <Frame Padding="0" HasShadow="False" BorderColor="#FFFAFAFA" CornerRadius="8" x:Name="accidentFrame" IsEnabled="False">
+                        <StackLayout Padding="0,0,0,8" WidthRequest="94.4298095703125" HeightRequest="68.3360595703125" >
+                            <Image Source="" HeightRequest="10" WidthRequest="10" Margin="10,5,10,0" HorizontalOptions="EndAndExpand" />
+                            <Image HeightRequest="18" WidthRequest="20" >
+                                <Image.Source>
+                                    <OnPlatform x:TypeArguments="FileImageSource" Android="ic_accident.png" iOS="ic_accident.png" />
+                                </Image.Source>
+                            </Image>
+                            <Label Text="Accident" FontSize="12" HorizontalOptions="Center" FontFamily="{StaticResource BoldFont}"  Margin="0,-2,0,10"/>
+                        </StackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnAccidentTapped"/>
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                    <Frame Padding="0" HasShadow="False" BorderColor="#FFFAFAFA" CornerRadius="8" x:Name="partiesFrame" IsEnabled="False">
+                        <StackLayout Padding="0,0,0,8" WidthRequest="94.4298095703125" HeightRequest="68.3360595703125" >
+                            <Image Source="" HeightRequest="10" WidthRequest="10" Margin="10,5,10,0" HorizontalOptions="EndAndExpand" />
+                            <Image HeightRequest="18" WidthRequest="20" >
+                                <Image.Source>
+                                    <OnPlatform x:TypeArguments="FileImageSource" Android="ic_parties.png" iOS="ic_parties.png" />
+                                </Image.Source>
+                            </Image>
+                            <Label Text="Parties"  FontSize="12" HorizontalOptions="Center" FontFamily="{StaticResource BoldFont}"  Margin="0,-2,0,13"/>
+                        </StackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnPartiesTapped"/>
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                    <Frame Padding="0" HasShadow="False" BorderColor="#FFFAFAFA" CornerRadius="8" x:Name="overviewFrame" IsEnabled="False">
+                        <StackLayout Padding="0,0,0,8" WidthRequest="94.4298095703125" HeightRequest="68.3360595703125" >
+                            <BoxView HeightRequest="10" WidthRequest="10" Margin="10,5,10,0" HorizontalOptions="EndAndExpand" />
+                            <Image HeightRequest="18" WidthRequest="20" >
+                                <Image.Source>
+                                    <OnPlatform x:TypeArguments="FileImageSource" Android="ic_overview.png" iOS="ic_overview.png" />
+                                </Image.Source>
+                            </Image>
+                            <Label Text="Overview" FontSize="12" HorizontalOptions="Center" FontFamily="{StaticResource BoldFont}"  Margin="0,-2,0,10"/>
+                        </StackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnOverviewTapped"/>
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                </StackLayout>
+                <StackLayout x:Name="AccidentControls" Orientation="Vertical">
+                    <StackLayout.Margin>
+                        <OnPlatform x:TypeArguments="Thickness" Android="0,15,0,15" iOS="0,15,0,15" />
+                     </StackLayout.Margin>
+                    <ActivityIndicator IsRunning="True" IsVisible="True" HorizontalOptions="Center" x:Name="loader" VerticalOptions="Center"/>
+                </StackLayout>
+            </StackLayout>
+            <Frame
+                x:Name="nextPageFAB"
+                BackgroundColor="#FF2ED573"
+                HeightRequest="40"
+                Margin="8"
+                HasShadow="false"
+                WidthRequest="40"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                IsVisible="False"
+                AbsoluteLayout.LayoutFlags="PositionProportional"  
+                AbsoluteLayout.LayoutBounds=".95,.95,80,80"
+                Padding="10">
+                <Image
+                    Source="ic_next.png" 
+                    HeightRequest="24"
+                    WidthRequest="24" 
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"/>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="NextStage_Tapped" />
+                </Frame.GestureRecognizers>
+                <Frame.CornerRadius>
+                    <OnPlatform x:TypeArguments="x:Single" iOS="30" Android="40" />
+                </Frame.CornerRadius>
+            </Frame>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</views:CustomContentPage>

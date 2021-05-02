@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<views:CustomContentPage
+    xmlns:views="clr-namespace:Via.Views"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Via.Controls"
+    xmlns:helpers="clr-namespace:Via.Helpers"
+    x:Class="Via.Views.AccidentReports"
+    xmlns:model ="clr-namespace:Via.Models"
+    Title="Reports"
+    Style="{StaticResource PageStyle}"
+    EnableBackButtonOverride="False"
+    NavigationPage.HasNavigationBar="False">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness" Android="20,15,20,0" iOS="20,35,20,0" />
+    </ContentPage.Padding>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <helpers:ImageConverter x:Key="ByteArrayToImage"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+   
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Orientation="Vertical" BackgroundColor="#FFFAF43FA">
+                <StackLayout Orientation="Horizontal" Margin="0,0,5,20">
+                    <Label Text="Reports" FontFamily="{StaticResource NormalFont}" VerticalOptions="CenterAndExpand"  TextColor="#00314b" FontSize="20" />
+                    <Frame HasShadow="False" Padding="0" BackgroundColor="#00314A"
+                       HorizontalOptions="EndAndExpand">
+                        <StackLayout HeightRequest="50" WidthRequest="50">
+                            <Image HeightRequest="50" WidthRequest="50" Aspect="AspectFit" x:Name="profileAvatar">
+                            </Image>
+                        </StackLayout>
+                         <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ShowNavigationDrawer" />
+                        </Frame.GestureRecognizers>
+                        <Frame.CornerRadius>
+                            <OnPlatform x:TypeArguments="x:Single" iOS="25" Android="50"/>
+                        </Frame.CornerRadius>
+                    </Frame>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Margin="0,0,0,0">
+                    <Label Text="Friday" Font="18" FontFamily="{StaticResource LightFont}" TextColor="#9998a9" FontSize="30" x:Name="currentDay" />
+                    <Label Text="8 Mar" Font="18" FontFamily="{StaticResource LightFont}" x:Name="currentDate" TextColor="#4f4f6f" FontSize="30"/>
+                </StackLayout>
+
+                <!-- Place new controls here -->
+                <ContentView VerticalOptions="FillAndExpand" BackgroundColor="Transparent">
+                    <RelativeLayout VerticalOptions="Fill">
+                        <StackLayout
+                        RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
+                        RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.85}">
+                            <StackLayout 
+                            Orientation="Vertical" 
+                            VerticalOptions="CenterAndExpand">
+                                <Label 
+                                x:Name="savedReportsComment" Text="You have no locally saved reports" 
+                                VerticalOptions="Center" 
+                                VerticalTextAlignment="Center" 
+                                HorizontalOptions="CenterAndExpand" 
+                                FontSize="18" />
+                            </StackLayout>
+                            <ListView
+                            x:Name="accidentReports"
+                            HasUnevenRows="True"
+                            SelectionMode="None"
+                            IsVisible="False"
+                            ItemTapped="ViewReport"
+                                BackgroundColor="Transparent"
+                            VerticalOptions="FillAndExpand"
+                            SeparatorVisibility="None">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate x:DataType="model:Report">
+                                        <ViewCell>
+                                            <Frame CornerRadius="8" HasShadow="True"   IsClippedToBounds="true" BackgroundColor="White" Margin="2,5,2,5" Padding="0">
+                                                <StackLayout Orientation="Horizontal">
+                                                    <BoxView BackgroundColor="#ff9f29" Margin="0" WidthRequest="3" HeightRequest="{Binding Path=Height, Source={x:Reference reportSummaryContainer}}" />
+                                                    <StackLayout Margin="-7,0,0,0" x:Name="reportSummaryContainer" Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                                                        <StackLayout Orientation="Vertical" Padding="10,6,10,6" HorizontalOptions="Fill">
+                                                            <StackLayout Orientation="Horizontal">
+                                                                <Label Text="{Binding ID}"
+                                                                        FontFamily="{StaticResource BoldFont}"
+                                                               FontSize="17" TextColor="#00314b" />
+                                                                <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+                                                                    <Image HeightRequest="16" WidthRequest="16" Source="ic_bus.png" />
+                                                                    <Image HeightRequest="16" WidthRequest="16" Source="ic_car.png" />
+                                                                    <Image HeightRequest="16" WidthRequest="16" Source="ic_walk.png" />
+                                                                </StackLayout>
+                                                                <Label Text="..." FontSize="20" TextColor="Gray" Margin="10,-10,0,0" />
+                                                            </StackLayout>
+                                                            <!--List to display accident images-->
+                                                            <!--<local:HorizontalListview Orientation="Horizontal" HorizontalScrollBarVisibility="Never" ItemsSource="{Binding Images}">
+                                                                <local:HorizontalListview.ItemTemplate >
+                                                                    <DataTemplate>
+                                                                        <ViewCell>
+                                                                            <Frame AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All"
+                                                                                   IsClippedToBounds="True"
+                                                                                   BorderColor="White"
+                                                                                   CornerRadius="10"
+                                                                                   Padding="0"
+                                                                                   HasShadow="False"
+                                                                                   Margin="0,7,7,0"
+                                                                                   HeightRequest="55"
+                                                                                   WidthRequest="55">
+                                                                                <Image Aspect="Fill" HeightRequest="55" WidthRequest="55"  Source="{Binding Url, Converter={StaticResource ByteArrayToImage}}"/>
+                                                                            </Frame>
+                                                                        </ViewCell>
+                                                                    </DataTemplate>
+                                                                </local:HorizontalListview.ItemTemplate>
+                                                            </local:HorizontalListview>-->
+
+                                                            <local:HorizontalListview Orientation="Horizontal" x:Name="accidentPhotos" HorizontalScrollBarVisibility="Never" ItemsSource="{Binding Images}">
+                                                                <local:HorizontalListview.ItemTemplate >
+                                                                    <DataTemplate x:DataType="model:ReportImage">
+                                                                        <ViewCell>
+                                                                            <Frame AbsoluteLayout.LayoutBounds="0, 0, 1, 1" 
+                                                                                AbsoluteLayout.LayoutFlags="All" IsClippedToBounds="True"
+                                                                                BorderColor="White" CornerRadius="10"
+                                                                                Padding="0" HasShadow="False"
+                                                                                Margin="0,7,7,0" HeightRequest="55"
+                                                                                WidthRequest="55">
+                                                                                <Image Aspect="Fill" HeightRequest="55" WidthRequest="55"  Source="{Binding Url, Converter={StaticResource ByteArrayToImage}}"/>
+                                                                            </Frame>
+                                                                        </ViewCell>
+                                                                    </DataTemplate>
+                                                                </local:HorizontalListview.ItemTemplate>
+                                                            </local:HorizontalListview>
+                                                        </StackLayout>
+                                                        <StackLayout Orientation="Horizontal" BackgroundColor="#fdeeda" Padding="10,6,10,6" HorizontalOptions="Fill">
+                                                            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" Padding="0,4,0,4">
+                                                                <Image HeightRequest="12" WidthRequest="12" Source="ic_map.png" />
+                                                                <Label Text="{Binding Location}"  FontFamily="{StaticResource NormalFont}" FontSize="12"/>
+                                                            </StackLayout>
+                                                            <StackLayout Orientation="Horizontal" Margin="0,0,10,0" Padding="0,4,0,4">
+                                                                <Image HeightRequest="12" WidthRequest="12" Source="ic_acc_calendar.png" />
+                                                                <Label Text="{Binding DateTime, StringFormat='{}{0:MM-dd-yyyy}'}" FontSize="12" FontFamily="{StaticResource NormalFont}" />
+                                                            </StackLayout>
+                                                            <StackLayout Orientation="Horizontal" Padding="0,4,0,4">
+                                                                <Image HeightRequest="12" WidthRequest="12" Source="ic_timer.png" />
+                                                                <Label Text="{Binding DateTime, StringFormat='{}{0:HH:mm}'}" FontSize="12" FontFamily="{StaticResource NormalFont}" />
+                                                            </StackLayout>
+                                                        </StackLayout>
+                                                    </StackLayout>
+                                                </StackLayout>
+                                            </Frame>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                            <ActivityIndicator 
+                                IsVisible="False" IsRunning="False" x:Name="processIndicator"
+                                HorizontalOptions="Center" VerticalOptions="Center" />
+                        </StackLayout>
+                        <StackLayout VerticalOptions="End"
+                             HorizontalOptions="CenterAndExpand" x:Name="BottomStack"
+                                  RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
+                                  RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.85}"
+                                  RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.15}">
+
+                            <!-- Bottom Content -->
+                            <Button CornerRadius="8" Text="Add New Report +" FontFamily="{StaticResource SemiBoldFont}" BackgroundColor="#FF2ED573" WidthRequest="{Binding Path=Width, Source={x:Reference BottomStack}}"
+                                TextColor="White" Margin="10,5,10,30" HorizontalOptions="CenterAndExpand" Clicked="CreateReport"/>
+                        </StackLayout>
+                    </RelativeLayout>
+                </ContentView>
+            </StackLayout>  
+        </ScrollView>
+    </ContentPage.Content>
+</views:CustomContentPage>
